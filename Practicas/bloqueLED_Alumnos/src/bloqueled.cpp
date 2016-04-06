@@ -50,9 +50,8 @@ void off(bloqueLed &b, int pos){
 @retval false	si el LED en la posici�n @p pos est� apagado
 */
 bool get(bloqueLed b, int pos){
-  //crear máscara 7 posicones - pos: 7-7 posicion 0, que es la primera
-  //Hacemos esto para recorrer de derecha a izquierda de forma 7 6 5 4 3 2 1 0
-  bloqueLed mask = enmascara(7-pos);
+  //crear máscara
+  bloqueLed mask = enmascara(pos);
   bool resultado = mask & b;
 
   if (resultado != 0)
@@ -71,7 +70,7 @@ Por ejemplo, si en el @c bloqueLed @c b est�n encendidos los LEDs en posicione
 
 */
 void print(bloqueLed b){
-  for (int i = 0;i<8;i++) {
+  for (int i = 7;i>=0;i--) {
     cout<<get(b,i);
   }
   cout<<endl;
