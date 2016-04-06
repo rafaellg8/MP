@@ -1,6 +1,8 @@
 #include "imagen.h"
 #include "pgm.h"
 #include "byte.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
 using namespace std;
 Imagen::Imagen(){
@@ -113,3 +115,37 @@ Imagen Imagen::plano (int k){
     }//For
     return copia;
   }
+
+/**
+@brief ArtesAscci
+@param char grises vector con los caracteres
+@param aArteASCII vector a devolver de imagenes
+@param maxlong maximo tamaño de aArteASCII
+*/
+bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong){
+  int filas = this->nfilas;
+  int columnas = this->ncolumnas+1;
+  cout<<filas<<" X "<<columnas<<endl;
+  int cardinal=0;
+  byte pixel=0;
+  int contadorColumna=0;
+
+  cardinal = sizeof(grises);//+1 del espacio final
+  if (maxlong > filas*columnas){
+    for (int i=0;i<filas;i++){
+      //Obtenemos valor del pixel
+      for (int j=0;j<columnas-1;j++){
+        contadorColumna = j;
+        int(pixel) = this->getPos(i*j); //Hacemos casting
+        cout<<pixel<<" ";
+        arteASCII[i*j] = grises[((pixel * cardinal/256))];
+      }
+      //arteASCII[i*contadorColumna]='\n';
+
+    }
+    return true;
+  }
+  else{
+    return false;
+  }
+}

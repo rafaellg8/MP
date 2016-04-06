@@ -13,7 +13,8 @@ all: $(BIN)/arteASCII $(BIN)/testarteASCII $(BIN)/testplano $(BIN)/testimagen
 
 $(BIN)/arteASCII:
 
-$(BIN)/testarteASCII:
+$(BIN)/testarteASCII: $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/testarteASCII.o $(OBJ)/byte.o
+	$(CXX) $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/byte.o $(OBJ)/testarteASCII.o -o $(BIN)/testarteASCII
 
 $(BIN)/testplano: $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/testplano.o $(OBJ)/byte.o
 	$(CXX) $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/byte.o $(OBJ)/testplano.o -o $(BIN)/testplano
@@ -36,6 +37,9 @@ $(OBJ)/testimagen.o:
 
 $(OBJ)/testplano.o:
 		$(CXX) $(CPPFLAGS) $(SRC)/testplano.cpp -o $(OBJ)/testplano.o
+
+$(OBJ)/testarteASCII.o:
+		$(CXX) $(CPPFLAGS) $(SRC)/testarteASCII.cpp -o $(OBJ)/testarteASCII.o
 # ***************** LIBRERIAS ***************** #
 $(LIB)/libimagen: $(OBJ)/imagen.o $(OBJ)/pgm.o
 	ar rvs $(LIB)/libimagen.a $(OBJ)/imagen.o $(OBJ)/pgm.o

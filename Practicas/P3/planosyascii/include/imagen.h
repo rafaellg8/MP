@@ -134,6 +134,7 @@ Lee desde disco los datos de la imagen llamada @a nombreFichero y la guarda en l
 @param k bit k-esimo
 */
   Imagen plano (int k);
-};
 
+  bool aArteASCII (const char grises[],char arteASCII[],int maxlong);
+};
 #endif
