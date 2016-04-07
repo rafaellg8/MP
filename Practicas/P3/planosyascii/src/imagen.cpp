@@ -67,8 +67,13 @@ byte Imagen::getPos(int i){
 bool Imagen::leerImagen(const char nombreFichero[]){
         //Nos aseguramos de que la imagen sea de tipo PGM
         TipoImagen img = infoPGM(nombreFichero,this->nfilas,this->ncolumnas);
-        if (this->nfilas*this->ncolumnas <= this->MAXPIXELS) {
-                return leerPGMBinario(nombreFichero, this->datos, this->nfilas, this->ncolumnas);
+        //Si se crea la imagen
+        if (img != 0) {
+                if (this->nfilas*this->ncolumnas <= this->MAXPIXELS) {
+                        return leerPGMBinario(nombreFichero, this->datos, this->nfilas, this->ncolumnas);
+                }
+                else
+                        return false;
         }
         else
                 return false;
@@ -130,9 +135,7 @@ bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong){
         int cardinal=0;
         byte pixel=0;
         int contadorColumna=0;
-
-        cout<<"Tiene filas"<<filas<<" X "<<columnas<<endl;
-        cout<<maxlong<<endl;
+        
 //Obtenemos el tamanio de grises
         int size=0;
         while ((grises[size])!=' ') {
