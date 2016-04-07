@@ -129,17 +129,25 @@ bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong){
   byte pixel=0;
   int contadorColumna=0;
 
-  cardinal = 7;//+1 del espacio final
-  if (maxlong > filas*columnas){
+//Obtenemos el tamanio de grises
+  int size=0;
+  while ((grises[size])!=' '){
+    size++;
+  }
+  cardinal=size+1;
+
+
+//Si es mayor que filas*columnas cabe en la imagen, la creamos y devuleve true
+  if (maxlong > (filas*columnas)){
     for (int i=0;i<filas;i++){
       //Obtenemos valor del pixel
-      for (int j=0;j<columnas;j++){
-        contadorColumna = j;
+      for (int j=0;j<columnas-1;j++){ //Una columna menos porque la ultima tiene el caracter \n
         pixel = this->get(i,j); //Hacemos casting
-        arteASCII[i*j] = grises[((pixel * cardinal/256))];
-        cout<<grises[((pixel * cardinal/256))]<<" ";
+        arteASCII[contadorColumna] = char(grises[((pixel * cardinal/256))]);
+        contadorColumna++;
       }
-      cout<<endl;
+      arteASCII[contadorColumna]='\n';
+      contadorColumna++;
     }
     return true;
   }

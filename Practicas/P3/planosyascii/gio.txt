@@ -1,0 +1,4 @@
+
+La imagen en arte ASCII es:
+ooooooooo;;;;;;;;;;;ooxxx%x%xxxxxxx%%%%%%%%%x%xxx%%%%%xxxxxxxxxxxxoxx%xo%ooooooooo;;;;;;;;;;;ooxxx%x%xxxxxxx%%%%%%%%%x%xxx%%%%%xxxxxxxxxxxxoxx%xo%Ahora Forzamos que no quepa. Debe aparecer un mensaje de error
+La conversión no ha sido posible
