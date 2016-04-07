@@ -135,6 +135,14 @@ Lee desde disco los datos de la imagen llamada @a nombreFichero y la guarda en l
 */
   Imagen plano (int k);
 
+/*
+@brief Dado un @param grises de caracteres y un @param arteASCII obtener la intensidad de cada pixel de arteASCII
+y pasarlo a los caracteres de grises.
+@param grises Caracteres que usaremos para codificar la imagen a ASCII
+@param arteASCII cadena de caracteres donde se guardadará la imagen
+@param maxlong tamaño de arteASCII
+@return true o false dependiendo de si la imagen es mayor o menor que maxlong
+*/
   bool aArteASCII (const char grises[],char arteASCII[],int maxlong);
 };
 #endif

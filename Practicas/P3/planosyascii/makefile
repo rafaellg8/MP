@@ -40,6 +40,7 @@ $(OBJ)/testplano.o:
 
 $(OBJ)/testarteASCII.o:
 		$(CXX) $(CPPFLAGS) $(SRC)/testarteASCII.cpp -o $(OBJ)/testarteASCII.o
+
 # ***************** LIBRERIAS ***************** #
 $(LIB)/libimagen: $(OBJ)/imagen.o $(OBJ)/pgm.o
 	ar rvs $(LIB)/libimagen.a $(OBJ)/imagen.o $(OBJ)/pgm.o
