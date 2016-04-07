@@ -11,8 +11,8 @@ CPPFLAGS = -Wall -g -c -I$(INC)
 
 all: $(BIN)/arteASCII $(BIN)/testarteASCII $(BIN)/testplano $(BIN)/testimagen
 
-$(BIN)/arteASCII:
-
+$(BIN)/arteASCII: $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/byte.o $(OBJ)/arteASCII.o
+	$(CXX) $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/byte.o $(OBJ)/arteASCII.o -o $(BIN)/arteASCII
 $(BIN)/testarteASCII: $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/testarteASCII.o $(OBJ)/byte.o
 	$(CXX) $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/byte.o $(OBJ)/testarteASCII.o -o $(BIN)/testarteASCII
 
@@ -40,6 +40,9 @@ $(OBJ)/testplano.o:
 
 $(OBJ)/testarteASCII.o:
 		$(CXX) $(CPPFLAGS) $(SRC)/testarteASCII.cpp -o $(OBJ)/testarteASCII.o
+
+$(OBJ)/arteASCII.o:
+	$(CXX) $(CPPFLAGS) $(SRC)/arteASCII.cpp -o $(OBJ)/arteASCII.o
 
 # ***************** LIBRERIAS ***************** #
 $(LIB)/libimagen: $(OBJ)/imagen.o $(OBJ)/pgm.o

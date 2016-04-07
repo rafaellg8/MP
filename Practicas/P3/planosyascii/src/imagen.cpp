@@ -131,6 +131,8 @@ bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong){
         byte pixel=0;
         int contadorColumna=0;
 
+        cout<<"Tiene filas"<<filas<<" X "<<columnas<<endl;
+        cout<<maxlong<<endl;
 //Obtenemos el tamanio de grises
         int size=0;
         while ((grises[size])!=' ') {
@@ -153,31 +155,11 @@ bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong){
                         arteASCII[contadorColumna]='\n';
                         contadorColumna++;
                 }
-
-                /**OPCIONAL
-                 * Lo hemos hecho así porque hemos querido para ver mejor el gio.txt
-                 */
-                //Si todo ha salido bien creamos el archivo gio.txt que contiene el vector arteASCII
-                bool option;
-                cout<<"\nDesea guardar gio.txt directamente: 1 SI o 0 N0 "<<endl;
-                cin>>option;
-                if (option==1)
-                        try {
-                                ofstream fo;
-                                fo.open("gio.txt");
-                                fo<<arteASCII;
-                                fo.close();
-                        }
-                        catch(std::exception const& e) {
-                                cout << "Error al crear gio.txt: " << e.what() << endl; {
-                                }
-                                //Si todo va bien
-                                return false;
-                        }
                 return true;
         }
-        //Si la imagen no cabe
-        else{
+
+        else {
                 return false;
         }
+
 }
