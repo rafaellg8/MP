@@ -125,23 +125,21 @@ Imagen Imagen::plano (int k){
 bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong){
   int filas = this->nfilas;
   int columnas = this->ncolumnas+1;
-  cout<<filas<<" X "<<columnas<<endl;
   int cardinal=0;
   byte pixel=0;
   int contadorColumna=0;
 
-  cardinal = sizeof(grises);//+1 del espacio final
+  cardinal = 7;//+1 del espacio final
   if (maxlong > filas*columnas){
     for (int i=0;i<filas;i++){
       //Obtenemos valor del pixel
-      for (int j=0;j<columnas-1;j++){
+      for (int j=0;j<columnas;j++){
         contadorColumna = j;
-        int(pixel) = this->getPos(i*j); //Hacemos casting
-        cout<<pixel<<" ";
+        pixel = this->get(i,j); //Hacemos casting
         arteASCII[i*j] = grises[((pixel * cardinal/256))];
+        cout<<grises[((pixel * cardinal/256))]<<" ";
       }
-      //arteASCII[i*contadorColumna]='\n';
-
+      cout<<endl;
     }
     return true;
   }
