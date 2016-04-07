@@ -120,8 +120,8 @@ Imagen Imagen::plano (int k){
 
 /**
    @brief ArtesAscci
-   @param char grises vector con los caracteres
-   @param aArteASCII vector a devolver de imagenes
+   @param grises vector con los caracteres
+   @param arteASCII vector a devolver de imagenes
    @param maxlong maximo tamaño de aArteASCII
  */
 bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong){

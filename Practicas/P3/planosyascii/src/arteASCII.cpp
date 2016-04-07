@@ -16,7 +16,7 @@ int main(){
   char arteASCII[TAMANIO_MAX]; // 4500 + el \0
 
   cout<<"\nIntroduzca el nombre de la imagen de entrada."<<endl;
-  cou<<"\nSi la imagen no esta en este directorio introducir en el formato: directorio/nombreImagen.extension"<<endl;
+  cout<<"\nSi la imagen no esta en este directorio introducir en el formato: directorio/nombreImagen.extension"<<endl;
   cin.getline(nombreFichero,50);
 
   cout<<"\nIntroduzca la escala de grises"<<endl;

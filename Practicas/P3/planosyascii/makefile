@@ -9,7 +9,7 @@ CXX = g++
 CPPFLAGS = -Wall -g -c -I$(INC)
 
 
-all: $(BIN)/arteASCII $(BIN)/testarteASCII $(BIN)/testplano $(BIN)/testimagen
+all: $(BIN)/arteASCII $(BIN)/testarteASCII $(BIN)/testplano $(BIN)/testimagen $(LIB)/libimagen
 
 $(BIN)/arteASCII: $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/byte.o $(OBJ)/arteASCII.o
 	$(CXX) $(OBJ)/imagen.o $(OBJ)/pgm.o $(OBJ)/byte.o $(OBJ)/arteASCII.o -o $(BIN)/arteASCII
@@ -46,6 +46,7 @@ $(OBJ)/arteASCII.o:
 
 # ***************** LIBRERIAS ***************** #
 $(LIB)/libimagen: $(OBJ)/imagen.o $(OBJ)/pgm.o
+	@echo Creando librerias
 	ar rvs $(LIB)/libimagen.a $(OBJ)/imagen.o $(OBJ)/pgm.o
 
 # ************ documentación *******
@@ -56,3 +57,6 @@ documentacion:
 clean:
 	rm $(BIN)/*
 	rm $(OBJ)/*
+
+mr_proper: clean
+	rm -rf doc/*
