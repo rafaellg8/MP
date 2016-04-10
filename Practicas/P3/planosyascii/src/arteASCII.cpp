@@ -19,7 +19,7 @@ int main(){
         cout<<"\nSi la imagen no esta en este directorio introducir en el formato: directorio/nombreImagen.extension"<<endl;
         cin.getline(nombreFichero,50);
 
-        cout<<"\nIntroduzca la escala de grises"<<endl;
+        cout<<"\nIntroduzca la escala de grises.NOTA: LOS ESPACIOS CUENTAN COMO CARACTERES"<<endl;
         cin.getline(grises,96);
 
         //Buscamos el fin de cadena y le metemos el espacio el \n y el caracter de fin de cadena
