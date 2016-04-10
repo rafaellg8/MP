@@ -20,11 +20,17 @@ int main(){
         cin.getline(nombreFichero,50);
 
         cout<<"\nIntroduzca la escala de grises"<<endl;
-        cin.getline(grises,97);
-        //Introducimos espacio y fin de cadena
-        grises[98]=' ';
-        grises[99]='\0';
+        cin.getline(grises,96);
 
+        //Buscamos el fin de cadena y le metemos el espacio el \n y el caracter de fin de cadena
+        int finCadena=0;
+        for (int i=0;i<100&&(grises[i]!='\0');i++)
+          finCadena++;
+
+        grises[finCadena]=' ';
+        finCadena++; //Añadimos tambien el caracter \n
+        grises[finCadena]='\n';
+        grises[finCadena+1]='\0';
 
         Imagen origen;
 
@@ -35,7 +41,8 @@ int main(){
         }
 
         cout << "\nLa imagen en arte ASCII es:\n";
-        if(origen.aArteASCII(grises, arteASCII, TAMANIO_MAX))
+        int tamanioUtilGrises=finCadena;
+        if(origen.aArteASCII(grises, arteASCII, TAMANIO_MAX,tamanioUtilGrises))
                 cout << arteASCII;
         else
                 cout << "La conversi�n no ha sido posible" << endl;
