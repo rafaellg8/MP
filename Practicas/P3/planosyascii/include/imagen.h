@@ -146,6 +146,7 @@ y pasarlo a los caracteres de grises.
   bool aArteASCII (const char grises[],char arteASCII[],int maxlong);
 
   /*
+  @override
   @brief Dado un @param grises de caracteres y un @param arteASCII obtener la intensidad de cada pixel de arteASCII
   y pasarlo a los caracteres de grises.
   @param grises Caracteres que usaremos para codificar la imagen a ASCII
