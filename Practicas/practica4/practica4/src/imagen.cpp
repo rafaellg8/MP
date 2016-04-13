@@ -217,8 +217,9 @@ bool Imagen::leeraArteASCII (const char * fichero,char * ficheroSalida,int maxlo
 
         if (fi){
           fi.getline(buffer,500); //lee la primera linea que es basura
-          fi >> numCadenasGrises;
+          fi>>numCadenasGrises;
           fi.getline(buffer,500);//Leemos la basura seguida del 4 que es una linea entera
+          cout<<buffer<<endl;
         }
         else{
           std::cerr << "Error de lectura del fichero" << std::endl;
