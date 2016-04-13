@@ -243,7 +243,9 @@ bool Imagen::leeraArteASCII (const char * fichero,char * ficheroSalida,int maxlo
             ofstream fo;
             char salida [100];
             strcat(salida,ficheroSalida);
-            strcat(salida,"a");
+            char numeroSalida[32]; //Donde guardamos el entero pasado a caracter
+            sprintf(numeroSalida,"%d",num); //Lo pasamos a caracter
+            strcat(salida,numeroSalida); //Concatenamos
             strcat(salida,".txt");
 
 
