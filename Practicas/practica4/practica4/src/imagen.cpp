@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
+#include <cstring>
 using namespace std;
 
 Imagen::Imagen(){
@@ -195,4 +196,76 @@ bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong,int ta
                 return false;
         }
 
+}
+
+/*
+Lectura de un fichero de texto con los caracteres de grises
+*/
+bool Imagen::leeraArteASCII (const char * fichero,char * ficheroSalida,int maxlong){
+        int filas = this->nfilas;
+        int columnas = this->ncolumnas+1;
+        int cardinal=0;
+        byte pixel=0;
+        int contadorColumna=0;
+        int numCadenasGrises = 0;
+        //Cadena de caracteres para la lectura del fichero grises
+        char buffer [500];
+
+        //Abrimos flujo entrada para leer del fichero
+        ifstream fi;
+        fi.open(fichero);
+
+        if (fi){
+          fi.getline(buffer,500); //lee la primera linea que es basura
+          fi >> numCadenasGrises;
+          fi.getline(buffer,500);//Leemos la basura seguida del 4 que es una linea entera
+        }
+        else{
+          std::cerr << "Error de lectura del fichero" << std::endl;
+          return false;
+        }
+
+//Si es mayor que filas*columnas cabe en la imagen, la creamos y devuelve true
+        if (maxlong > (filas*columnas)) {
+          //Creamos un archivo de salida para cada numero de cadenas de grises
+          for (int num=0;num<numCadenasGrises;num++){
+            int size = 0;
+            fi.getline(buffer,500);
+
+            cout<<"\nLeyendo buffer"<<buffer<<endl;
+            //Obtenemos el cardinal del buffer leido
+            while ((buffer[size])!=' ') {
+                    size++;
+            }
+            cardinal=size+1; //Añadimos el caracter \n
+
+            //Ahora creamos el fichero de salida
+            ofstream fo;
+            char salida [100];
+            strcat(salida,ficheroSalida);
+            strcat(salida,"a");
+            strcat(salida,".txt");
+
+
+            fo.open(salida);
+                for (int i=0; i<filas; i++) {
+                        //Obtenemos valor del pixel
+                        for (int j=0; j<columnas-1; j++) { //Una columna menos porque la ultima tiene el caracter \n
+                                pixel = this->get(i,j);
+                                //Asignamos a cada posicion de arteASCII su conversion a caracteres segun el rango de intensidad
+                                //de cada pixel
+                                fo<<char(buffer[((pixel * cardinal/256))]);
+                                contadorColumna++;
+                        }
+                        fo<<'\n';
+                        contadorColumna++;
+                }
+                fo.close();
+                strcpy(salida,"");
+        }
+      }
+        else {
+                return false;
+        }
+        return true;
 }

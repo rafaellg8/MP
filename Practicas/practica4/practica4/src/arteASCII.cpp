@@ -12,39 +12,27 @@ using namespace std;
 int main(){
         const int TAMANIO_MAX = 500*500;
         char nombreFichero [100];
-        char grises[100];
+
         char arteASCII[TAMANIO_MAX]; // 4500 + el \0
+        const int maxlong =TAMANIO_MAX;
 
         cout<<"\nIntroduzca el nombre de la imagen de entrada."<<endl;
         cout<<"\nSi la imagen no esta en este directorio introducir en el formato: directorio/nombreImagen.extension"<<endl;
-        cin.getline(nombreFichero,50);
-
-        cout<<"\nIntroduzca la escala de grises.NOTA: LOS ESPACIOS CUENTAN COMO CARACTERES"<<endl;
-        cin.getline(grises,96);
-
-        //Buscamos el fin de cadena y le metemos el espacio el \n y el caracter de fin de cadena
-        int finCadena=0;
-        for (int i=0;i<100&&(grises[i]!='\0');i++)
-          finCadena++;
-
-        grises[finCadena]=' ';
-        finCadena++; //Añadimos tambien el caracter \n
-        grises[finCadena]='\n';
-        grises[finCadena+1]='\0';
+        //cin.getline(nombreFichero,50);
 
         Imagen origen;
 
         // Leer la imagen gio.pgm
-        if (!origen.leerImagen(nombreFichero)) {
+        if (!origen.leerImagen("imagenes/gio.pgm")) {
                 cerr << "error leyendo imagenes/"<<nombreFichero<<"\n";
                 return 1;
         }
 
         cout << "\nLa imagen en arte ASCII es:\n";
-        int tamanioUtilGrises=finCadena;
-        if(origen.aArteASCII(grises, arteASCII, TAMANIO_MAX,tamanioUtilGrises))
+
+        if(origen.leeraArteASCII("grises.txt","arteASCII",maxlong))
                 cout << arteASCII;
         else
-                cout << "La conversi�n no ha sido posible" << endl;
+                cout << "La conversion no ha sido posible" << endl;
 
 }
