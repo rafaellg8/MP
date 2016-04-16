@@ -69,9 +69,12 @@ bool Imagen::leerImagen(const char nombreFichero[]){
         //Nos aseguramos de que la imagen sea de tipo PGM
         TipoImagen img = infoPGM(nombreFichero,this->nfilas,this->ncolumnas);
         //Si se crea la imagen
-        if (img != 0) {
-                if (this->nfilas*this->ncolumnas <= this->MAXPIXELS) {
+        if (this->nfilas*this->ncolumnas <= this->MAXPIXELS){
+                if (img==IMG_PGM_BINARIO) {
                         return leerPGMBinario(nombreFichero, this->datos, this->nfilas, this->ncolumnas);
+                }
+                else if (img==IMG_PGM_TEXTO){
+                        return leerPGMTexto(nombreFichero,this->datos,this->nfilas,this->ncolumnas);
                 }
                 else
                         return false;
