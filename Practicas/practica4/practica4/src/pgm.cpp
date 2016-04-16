@@ -8,7 +8,9 @@
 
 #include <fstream>
 #include <string>
+#include <cstring>
 #include "pgm.h"
+#include <iostream>
 using namespace std;
 
 
@@ -94,6 +96,28 @@ bool leerPGMBinario (const char nombre[], unsigned char datos[], int& filas, int
         return exito;
 }
 
+// _____________________________________________________________________________
+bool leerPGMTexto (const char nombre[], unsigned char datos[], int& filas, int &columnas)
+{
+      bool exito = false;
+      filas = 0;
+      columnas = 0;
+      int buffer;
+      ifstream f(nombre); //Flujo de entrada con el nombre del archivo
+
+      //Comprobamos que sea de tipo PGMTexto
+      if (LeerTipo(f)==IMG_PGM_TEXTO)
+        if (LeerCabecera(f,filas,columnas)){
+          for (int i=0;i<filas*columnas;i++){
+            f>>buffer;
+            cout<<buffer<< " ";
+            datos[i]=buffer;
+          }
+            exito= true;
+        }
+
+        return exito;
+}
 // _____________________________________________________________________________
 
 bool escribirPGMBinario (const char nombre[], const unsigned char datos[], int filas, int columnas)
