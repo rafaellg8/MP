@@ -59,7 +59,6 @@ Imagen(int filas, int columnas);
   @param copy Objeto que queremos copiar
 */
 Imagen(const Imagen & copy);
-
 /**
   @brief Sobrecarga operator = constructor de copia
   @param copy Objeto que queremos copiar
