@@ -10,6 +10,7 @@
 using namespace std;
 
 Imagen::Imagen(){
+        datos = 0;
         nfilas = 0;
         ncolumnas = 0;
 }
@@ -26,17 +27,19 @@ Imagen::Imagen(int filas, int columnas){
 
 //Destructor
 Imagen::~Imagen(){
+  cout<<"\nDestructor"<<endl;
   destruir();
 }
 
 void Imagen::crear(int filas,int columnas){
-        if (nfilas*ncolumnas > 0){ //Si hay memoria reservada
+        if (this->nfilas*this->ncolumnas != 0){
+          //Si hay memoria reservada
           destruir();
         }
         nfilas = filas;
         ncolumnas = columnas;
 
-        datos = new byte [nfilas*ncolumnas];
+        datos = new byte[nfilas*ncolumnas];
 
         for (int i=0; i<ncolumnas*nfilas; i++)
                 datos[i]=0;
@@ -44,9 +47,9 @@ void Imagen::crear(int filas,int columnas){
 
 //Funcion auxliar al destructor
 void Imagen::destruir(){
-  this->nfilas = this->ncolumnas = 0;
-  delete [] datos;
-  delete datos;
+   //this->nfilas = this->ncolumnas = 0;
+   //delete []datos;
+   //delete this->datos;
 }
 
 int Imagen::filas(){
@@ -88,9 +91,11 @@ bool Imagen::leerImagen(const char nombreFichero[]){
         //Si se crea la imagen
         if (this->nfilas*this->ncolumnas <= this->MAXPIXELS){
                 if (img==IMG_PGM_BINARIO) {
+                        crear(nfilas,ncolumnas);
                         return leerPGMBinario(nombreFichero, this->datos, this->nfilas, this->ncolumnas);
                 }
                 else if (img==IMG_PGM_TEXTO){
+                        crear(nfilas,ncolumnas);
                         return leerPGMTexto(nombreFichero,this->datos,this->nfilas,this->ncolumnas);
                 }
                 else

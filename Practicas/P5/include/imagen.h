@@ -17,8 +17,8 @@ class Imagen {
 private:
 static const int MAXPIXELS = 1000000;         ///< número máximo de píxeles que podemos almacenar
 byte* datos;         ///< datos de la imagen
-int nfilas;         ///< número de filas de la imagen
-int ncolumnas;         ///< número de columnsa de la imagen
+int nfilas = 0;         ///< número de filas de la imagen
+int ncolumnas = 0;         ///< número de columnsa de la imagen
 
 /**
    @brief Crea una imagen negra de tamaño @a filas x @a columnas

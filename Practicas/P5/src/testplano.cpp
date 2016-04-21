@@ -8,7 +8,6 @@ using namespace std;
 int main(){
 
         Imagen origen, plano;
-
         // Leer la imagen giotexto.pgm
         if (!origen.leerImagen("imagenes/giotexto.pgm")) {
                 cerr << "error leyendo imagenes/giotexto.pgm\n";
@@ -38,6 +37,7 @@ int main(){
                 cerr << "Error guardando la imagen plano0.pgm\n";
                 return 1;
         }
+
 
         return 0;
 }
