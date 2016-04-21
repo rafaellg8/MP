@@ -6,7 +6,6 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
-#include "../include/pgm.h"
 using namespace std;
 
 Imagen::Imagen(){
@@ -25,6 +24,28 @@ Imagen::Imagen(int filas, int columnas){
         }
 }
 
+//Constructor de copia
+Imagen::Imagen(const Imagen &copy){
+  cout<<"\nConstructor de copia"<<endl;
+  this->nfilas = copy.nfilas;
+  this->ncolumnas = copy.ncolumnas;
+  this->datos = new byte [nfilas*ncolumnas];
+  for (int i=0;i<nfilas*ncolumnas;i++){
+    this->datos[i]=copy.datos[i];
+  }
+}
+
+Imagen& Imagen::operator=(const Imagen & copy){
+  cout<<"\nConstructor de copia"<<endl;
+  this->nfilas = copy.nfilas;
+  this->ncolumnas = copy.ncolumnas;
+  cout<<nfilas<<endl;
+  this->datos = new byte [nfilas*ncolumnas];
+  for (int i=0;i<nfilas*ncolumnas;i++){
+    this->datos[i]=copy.getPos(i);
+  }
+  return *this;
+}
 //Destructor
 Imagen::~Imagen(){
   cout<<"\nDestructor"<<endl;
@@ -45,11 +66,23 @@ void Imagen::crear(int filas,int columnas){
                 datos[i]=0;
 }
 
+void Imagen::copiar(byte * data,int f, int c){
+  this->nfilas = f;
+  this->ncolumnas = c;
+  crear(nfilas,ncolumnas);
+
+  for (int i=0;i<nfilas*ncolumnas;i++){
+    this->datos[i]=data[i];
+  }
+}
+
 //Funcion auxliar al destructor
 void Imagen::destruir(){
-   //this->nfilas = this->ncolumnas = 0;
-   //delete []datos;
-   //delete this->datos;
+  if (nfilas*ncolumnas > 0){
+   nfilas = ncolumnas = 0;
+   delete []datos;
+   delete datos;
+ }
 }
 
 int Imagen::filas(){

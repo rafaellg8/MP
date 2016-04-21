@@ -17,8 +17,8 @@ class Imagen {
 private:
 static const int MAXPIXELS = 1000000;         ///< número máximo de píxeles que podemos almacenar
 byte* datos;         ///< datos de la imagen
-int nfilas = 0;         ///< número de filas de la imagen
-int ncolumnas = 0;         ///< número de columnsa de la imagen
+int nfilas;         ///< número de filas de la imagen
+int ncolumnas;         ///< número de columnsa de la imagen
 
 /**
    @brief Crea una imagen negra de tamaño @a filas x @a columnas
@@ -31,10 +31,12 @@ int ncolumnas = 0;         ///< número de columnsa de la imagen
 void crear(int filas, int columnas);
 
 /**
-   @brief Funcion auxiliar para destruir el vector de pixles
- */
-void destruir();
-
+  @brief Metodo auxiliar que copia
+  @param data puntero a un array de bytes
+  @param f numero filas
+  @param c numero columnas
+*/
+void copiar(byte* data,int f,int c);
 
 public:
 /// Construye una imagen vacía (0 filas, 0 columnas)
@@ -51,10 +53,29 @@ Imagen();
  */
 Imagen(int filas, int columnas);
 
+
+/**
+  @brief Constructor de copia
+  @param copy Objeto que queremos copiar
+*/
+Imagen(const Imagen & copy);
+
+/**
+  @brief Sobrecarga operator = constructor de copia
+  @param copy Objeto que queremos copiar
+*/
+
+Imagen & operator =  (const Imagen & copy);
 /**
    @brief Destructor
  */
 ~Imagen();
+
+
+/**
+   @brief Funcion auxiliar para destruir el vector de pixles
+ */
+void destruir();
 
 /**
    @brief Devuelve el número de filas de las imagen
