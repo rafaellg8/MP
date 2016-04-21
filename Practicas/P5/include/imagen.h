@@ -65,7 +65,7 @@ Imagen(const Imagen & copy);
   @param copy Objeto que queremos copiar
 */
 
-Imagen & operator =  (const Imagen & copy);
+Imagen & operator = (const Imagen & copy);
 /**
    @brief Destructor
  */
