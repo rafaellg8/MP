@@ -79,4 +79,17 @@ bool leerPGMTexto (const char nombre[], unsigned char datos[], int& filas, int&c
  */
 bool escribirPGMBinario (const char nombre[], const unsigned char datos[], int filas, int columnas);
 
+/**
+ * @brief Escribe una imagen de tipo PGM Texto
+ *
+ * @param nombre  nombre del archivo a escribir
+ * @param datos   vector con @a filas x @a columnas bytes que corresponden
+ *       a los valores de los píxeles de la imagen de grises.
+ * @param filas   número de filas de la imagen
+ * @param columnas	número de columnas de la imagen
+ * @retval true   si ha tenido éxito en la escritura.
+ * @retval false  si se ha producido algún error en la escritura.
+ */
+ 
+bool escribirPGMTexto (const char nombre[], const unsigned char datos[], int filas, int columnas);
 #endif

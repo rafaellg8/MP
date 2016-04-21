@@ -12,7 +12,7 @@ int main(){
                 destino.setPos(i, i%destino.columnas()+20);
 
         // Guardar la imagen destino en el fichero degradado.pgm
-        if (destino.escribirImagen("degradado.pgm", true)) {
+        if (destino.escribirImagen("degradado.pgm", false)) {
                 // si todo va bien
                 cout << "degradado.pgm guardado correctamente \n";
                 cout << "usa: display degradado.pgm para ver el resultado\n";
@@ -22,8 +22,8 @@ int main(){
         }
 
         // Leer la imagen lena.pgm
-        if (!origen.leerImagen("imagenes/lena.pgm")) {
-                cerr << "error leyendo imagenes/lena.pgm\n";
+        if (!origen.leerImagen("imagenes/giotexto_txt.pgm")) {
+                cerr << "error leyendo imagenes/giotexto_txt.pgm\n";
                 return 1;
         }
 
@@ -34,7 +34,7 @@ int main(){
                         destino.set(i, j, origen.get(i+110,j+100));
 
         // Guardar la imagen destino en el fichero trozo.pgm
-        if (destino.escribirImagen("trozo.pgm", true)) {
+        if (destino.escribirImagen("trozo.pgm", false)) {
                 // si todo va bien
                 cout << "trozo.pgm guardado correctamente \n";
                 cout << "usa: display trozo.pgm para ver el resultado\n";

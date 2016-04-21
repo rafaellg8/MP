@@ -18,7 +18,7 @@ int main(){
         plano = origen.plano(6);
 
         // Guardar la imagen plano en el fichero plano6.pgm
-        if (plano.escribirImagen("plano6.pgm", true)) {
+        if (plano.escribirImagen("plano6.pgm", false)) {
                 // si todo va bien
                 cout << "plano6.pgm guardado correctamente \n";
                 cout << "usa: display plano6.pgm para ver el resultado\n";
@@ -30,7 +30,7 @@ int main(){
         plano = origen.plano(0);
 
         // Guardar la imagen plano en el fichero plano0.pgm
-        if (plano.escribirImagen("plano0.pgm", true)) {
+        if (plano.escribirImagen("plano0.pgm", false)) {
                 // si todo va bien
                 cout << "plano0.pgm guardado correctamente \n";
                 cout << "usa: display plano0.pgm para ver el resultado\n";

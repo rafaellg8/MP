@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include "../include/pgm.h"
 using namespace std;
 
 Imagen::Imagen(){
@@ -91,7 +92,10 @@ bool Imagen::leerImagen(const char nombreFichero[]){
    @retval false  si se ha producido algún error en la escritura
  */
 bool Imagen::escribirImagen(const char nombreFichero[], bool esBinario){
-        return escribirPGMBinario (nombreFichero, this->datos, this->nfilas, this->ncolumnas);
+  return (esBinario)?
+  escribirPGMBinario (nombreFichero, this->datos, this->nfilas, this->ncolumnas):
+  escribirPGMTexto(nombreFichero, this->datos, this->nfilas, this->ncolumnas);
+  
 }
 
 /**

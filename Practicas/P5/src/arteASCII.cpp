@@ -13,7 +13,7 @@ int main(){
         const int TAMANIO_MAX = 500*500;
         char nombreFichero [100];
         char nombreSalida [100];
-        char arteASCII[TAMANIO_MAX]; // 4500 + el \0
+        //char arteASCII[TAMANIO_MAX]; // 4500 + el \0
         const int maxlong =TAMANIO_MAX;
 
         cout<<"\nIntroduzca el nombre de la imagen de entrada."<<endl;

@@ -11,6 +11,9 @@
 #include <cstring>
 #include "pgm.h"
 #include <iostream>
+#include<cstdio>
+#include<stdlib.h>
+
 using namespace std;
 
 
@@ -110,7 +113,7 @@ bool leerPGMTexto (const char nombre[], unsigned char datos[], int& filas, int &
         if (LeerCabecera(f,filas,columnas)){
           for (int i=0;i<filas*columnas;i++){
             f>>buffer;
-            cout<<buffer<< " ";
+            //cout<<buffer<< " ";
             datos[i]=buffer;
           }
             exito= true;
@@ -131,6 +134,25 @@ bool escribirPGMBinario (const char nombre[], const unsigned char datos[], int f
                 f << 255 << endl;
                 f.write(reinterpret_cast<const char *>(datos),filas*columnas);
                 if (!f) res=false;
+        }
+        return res;
+}
+
+//**************************
+
+bool escribirPGMTexto (const char nombre[], const unsigned char datos[], int filas, int columnas)
+{
+        ofstream f(nombre);
+        bool res = true;
+
+        if (f) {
+                f << "P2" << endl;
+                f << columnas << ' ' << filas << endl;
+                f << 255 << endl;
+		for (int i=0;i<filas*columnas;i++){
+		  f << (int)datos[i] << ' ';
+		}
+		if (!f) res=false;
         }
         return res;
 }
