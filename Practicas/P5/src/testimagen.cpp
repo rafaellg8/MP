@@ -28,7 +28,7 @@ int main(){
         }
 
         // Recortar un trozo de la imagen origen
-        destino.crear(40,90);
+        destino = Imagen(40,90);
         for (int i=0; i < destino.filas(); i++)
                 for (int j=0; j < destino.columnas(); j++)
                         destino.set(i, j, origen.get(i+110,j+100));

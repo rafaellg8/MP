@@ -15,8 +15,7 @@ Imagen::Imagen(){
 }
 
 Imagen::Imagen(int filas, int columnas){
-        nfilas = filas;
-        ncolumnas = columnas;
+        crear(filas,columnas);
 
         //i = y ∗ columnas + x
         //Recorremos de forma secuencial el vector y lo ponemos a negro cada posicion
@@ -25,12 +24,29 @@ Imagen::Imagen(int filas, int columnas){
         }
 }
 
+//Destructor
+Imagen::~Imagen(){
+  destruir();
+}
+
 void Imagen::crear(int filas,int columnas){
+        if (nfilas*ncolumnas > 0){ //Si hay memoria reservada
+          destruir();
+        }
         nfilas = filas;
         ncolumnas = columnas;
 
+        datos = new byte [nfilas*ncolumnas];
+
         for (int i=0; i<ncolumnas*nfilas; i++)
                 datos[i]=0;
+}
+
+//Funcion auxliar al destructor
+void Imagen::destruir(){
+  this->nfilas = this->ncolumnas = 0;
+  delete [] datos;
+  delete datos;
 }
 
 int Imagen::filas(){
@@ -95,7 +111,7 @@ bool Imagen::escribirImagen(const char nombreFichero[], bool esBinario){
   return (esBinario)?
   escribirPGMBinario (nombreFichero, this->datos, this->nfilas, this->ncolumnas):
   escribirPGMTexto(nombreFichero, this->datos, this->nfilas, this->ncolumnas);
-  
+
 }
 
 /**

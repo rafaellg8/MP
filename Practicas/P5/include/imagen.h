@@ -15,14 +15,30 @@ typedef unsigned char byte; ///< byte = 8bits almacenado en un unsigned char
  */
 class Imagen {
 private:
-        static const int MAXPIXELS = 1000000; ///< número máximo de píxeles que podemos almacenar
-        byte datos[MAXPIXELS]; ///< datos de la imagen
-        int nfilas; ///< número de filas de la imagen
-        int ncolumnas; ///< número de columnsa de la imagen
+static const int MAXPIXELS = 1000000;         ///< número máximo de píxeles que podemos almacenar
+byte* datos;         ///< datos de la imagen
+int nfilas;         ///< número de filas de la imagen
+int ncolumnas;         ///< número de columnsa de la imagen
+
+/**
+   @brief Crea una imagen negra de tamaño @a filas x @a columnas
+   @param filas   número de filas de la imagen
+   @param columnas	número de columnas de la imagen
+
+   Dimensiona la imagen a tamaño @a filas x @a columnas y pone todos
+   sus elementos a 0.
+ */
+void crear(int filas, int columnas);
+
+/**
+   @brief Funcion auxiliar para destruir el vector de pixles
+ */
+void destruir();
+
 
 public:
 /// Construye una imagen vacía (0 filas, 0 columnas)
-        Imagen();
+Imagen();
 
 
 /**
@@ -33,32 +49,25 @@ public:
    Construye una imagen de tamaño @a filas x @a columnas y pone todos
    sus elementos a 0.
  */
-        Imagen(int filas, int columnas);
-
+Imagen(int filas, int columnas);
 
 /**
-   @brief Crea una imagen negra de tamaño @a filas x @a columnas
-   @param filas   número de filas de la imagen
-   @param columnas	número de columnas de la imagen
-
-   Dimensiona la imagen a tamaño @a filas x @a columnas y pone todos
-   sus elementos a 0.
+   @brief Destructor
  */
-        void crear(int filas, int columnas);
-
+~Imagen();
 
 /**
    @brief Devuelve el número de filas de las imagen
    @return el número de filas de la imagen
  */
-        int filas();
+int filas();
 
 
 /**
    @brief Devuelve el número de columnas de las imagen
    @return el número de columnas de la imagen
  */
-        int columnas();
+int columnas();
 
 
 /**
@@ -71,7 +80,7 @@ public:
    como un vector, la posición (@a x,@a y) corresponde a la posición @a y * @c ncolumnas + @a x
    del vector.
  */
-        void set(int y, int x, byte v);
+void set(int y, int x, byte v);
 
 
 /**
@@ -84,7 +93,7 @@ public:
    como un vector, la posición (@a x,@a y) corresponde a la posición @a y * @c ncolumnas + @a x
    del vector.
  */
-        byte get(int y, int x);
+byte get(int y, int x);
 
 
 /**
@@ -96,7 +105,7 @@ public:
    corresponde con la posición @c y * @c ncolumnas + @c x de la imagen donde @c y representa la
    fila y @c x representa la columna.
  */
-        void setPos(int i, byte v);
+void setPos(int i, byte v);
 
 
 /**
@@ -107,7 +116,7 @@ public:
    corresponde con la posición @c y * @c ncolumnas + @c x de la imagen donde @c y representa la
    fila y @c x representa la columna.
  */
-        byte getPos(int i);
+byte getPos(int i);
 
 
 /**
@@ -118,7 +127,7 @@ public:
 
    Lee desde disco los datos de la imagen llamada @a nombreFichero y la guarda en la memoria. La función debe asegurarse de que la imagen es de un tipo de imagen conocido y de que su tamaño es menor del tamaño máximo permitido (@c MAXDATOS).
  */
-        bool leerImagen(const char nombreFichero[]);
+bool leerImagen(const char nombreFichero[]);
 
 
 /**
@@ -128,13 +137,13 @@ public:
    @retval true   si ha tenido éxito en la escritura
    @retval false  si se ha producido algún error en la escritura
  */
-        bool escribirImagen(const char nombreFichero[], bool esBinario);
+bool escribirImagen(const char nombreFichero[], bool esBinario);
 
 /**
    @brief Dado un numero @param k extraer el plano de bits k-esimo y devolverlo como una nueva imagen
    @param k bit k-esimo
  */
-        Imagen plano (int k);
+Imagen plano (int k);
 
 /*
    @brief Dado un @param grises de caracteres y un @param arteASCII obtener la intensidad de cada pixel de arteASCII
@@ -144,29 +153,29 @@ public:
    @param maxlong tamaño de arteASCII
    @return true o false dependiendo de si la imagen es mayor o menor que maxlong
  */
-        bool aArteASCII (const char grises[],char arteASCII[],int maxlong);
+bool aArteASCII (const char grises[],char arteASCII[],int maxlong);
 
-        /*
-           @override
-           @brief Dado un @param grises de caracteres y un @param arteASCII obtener la intensidad de cada pixel de arteASCII
-           y pasarlo a los caracteres de grises.
-           @param grises Caracteres que usaremos para codificar la imagen a ASCII
-           @param arteASCII cadena de caracteres donde se guardadará la imagen
-           @param maxlong tamaño de arteASCII
-           @param tamGrises tamaño de grises
-           @return true o false dependiendo de si la imagen es mayor o menor que maxlong
-         */
-        bool aArteASCII (const char grises[],char arteASCII[],int maxlong,int tamGrises);
+/*
+   @override
+   @brief Dado un @param grises de caracteres y un @param arteASCII obtener la intensidad de cada pixel de arteASCII
+   y pasarlo a los caracteres de grises.
+   @param grises Caracteres que usaremos para codificar la imagen a ASCII
+   @param arteASCII cadena de caracteres donde se guardadará la imagen
+   @param maxlong tamaño de arteASCII
+   @param tamGrises tamaño de grises
+   @return true o false dependiendo de si la imagen es mayor o menor que maxlong
+ */
+bool aArteASCII (const char grises[],char arteASCII[],int maxlong,int tamGrises);
 
-        /*
-           @override
-           @brief Dado un @param grises de caracteres y un @param arteASCII obtener la intensidad de cada pixel de arteASCII
-           y pasarlo a los caracteres de grises.
-           @param grises Caracteres que usaremos para codificar la imagen a ASCII
-           @param tamGrises tamaño de grises
-           @return true o false dependiendo de si la imagen es mayor o menor que maxlong
-         */
-        bool leeraArteASCII (const char * grises,char * ficheroSalida,int maxlong);
+/*
+   @override
+   @brief Dado un @param grises de caracteres y un @param arteASCII obtener la intensidad de cada pixel de arteASCII
+   y pasarlo a los caracteres de grises.
+   @param grises Caracteres que usaremos para codificar la imagen a ASCII
+   @param tamGrises tamaño de grises
+   @return true o false dependiendo de si la imagen es mayor o menor que maxlong
+ */
+bool leeraArteASCII (const char * grises,char * ficheroSalida,int maxlong);
 
 };
 #endif
