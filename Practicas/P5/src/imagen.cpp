@@ -15,8 +15,8 @@ Imagen::Imagen(){
 }
 
 Imagen::Imagen(int filas, int columnas){
+        datos = 0;
         crear(filas,columnas);
-
         //i = y ∗ columnas + x
         //Recorremos de forma secuencial el vector y lo ponemos a negro cada posicion
         for (int i=0; i<ncolumnas*nfilas; i++) {
@@ -24,43 +24,20 @@ Imagen::Imagen(int filas, int columnas){
         }
 }
 
-//Constructor de copia
-Imagen::Imagen(const Imagen &copy){
-  cout<<"\nConstructor de copia"<<endl;
-  this->nfilas = copy.nfilas;
-  this->ncolumnas = copy.ncolumnas;
-  this->datos = new byte [nfilas*ncolumnas];
-  for (int i=0;i<nfilas*ncolumnas;i++){
-    this->datos[i]=copy.datos[i];
-  }
-}
-
-Imagen& Imagen::operator=(const Imagen & copy){
-  cout<<"\nConstructor de copia"<<endl;
-  this->nfilas = copy.nfilas;
-  this->ncolumnas = copy.ncolumnas;
-  cout<<nfilas<<endl;
-  this->datos = new byte [nfilas*ncolumnas];
-  for (int i=0;i<nfilas*ncolumnas;i++){
-    this->datos[i]=copy.getPos(i);
-  }
-  return *this;
-}
 //Destructor
 Imagen::~Imagen(){
-  cout<<"\nDestructor"<<endl;
   destruir();
 }
 
 void Imagen::crear(int filas,int columnas){
-        if (this->nfilas*this->ncolumnas != 0){
-          //Si hay memoria reservada
-          destruir();
-        }
+        // if (datos!=0){
+        //   //Si hay memoria reservada
+        //   destruir();
+        // }
         nfilas = filas;
         ncolumnas = columnas;
 
-        datos = new byte[nfilas*ncolumnas];
+        datos = new byte [nfilas*ncolumnas];
 
         for (int i=0; i<ncolumnas*nfilas; i++)
                 datos[i]=0;
@@ -78,11 +55,10 @@ void Imagen::copiar(byte * data,int f, int c){
 
 //Funcion auxliar al destructor
 void Imagen::destruir(){
-  if (nfilas*ncolumnas > 0){
    nfilas = ncolumnas = 0;
-   delete []datos;
-   delete datos;
- }
+   datos = 0;
+   delete [] datos;
+
 }
 
 int Imagen::filas(){

@@ -54,19 +54,19 @@ Imagen();
 Imagen(int filas, int columnas);
 
 
-/**
-  @brief Constructor de copia
-  @param copy Objeto que queremos copiar
-*/
-Imagen(const Imagen & copy);
-/**
-  @brief Sobrecarga operator = constructor de copia
-  @param copy Objeto que queremos copiar
-*/
-Imagen & operator = (const Imagen & copy);
-/**
-   @brief Destructor
- */
+// /**
+//   @brief Constructor de copia
+//   @param copy Objeto que queremos copiar
+// */
+// Imagen(const Imagen & copy);
+// /**
+//   @brief Sobrecarga operator = constructor de copia
+//   @param copy Objeto que queremos copiar
+// */
+// Imagen & operator = (const Imagen & copy);
+// /**
+//    @brief Destructor
+//  */
 ~Imagen();
 
 
