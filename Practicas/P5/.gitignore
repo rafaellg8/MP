@@ -1,0 +1,5 @@
+*.pgm
+bin/*
+obj/*
+salida*
+ascii*
