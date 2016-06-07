@@ -5,7 +5,7 @@ BIN = bin
 LIB = lib
 
 CXX = g++
-CPPFLAGS = -Wall -g -ansi -std=c++11 -I$(INC) -pedantic
+CPPFLAGS = -Wall -Werror -g -ansi -std=c++11 -I$(INC) -pedantic
 
 
 all: $(BIN)/arteASCII $(BIN)/testarteASCII $(BIN)/testplano $(BIN)/testimagen $(BIN)/arteASCII2 $(BIN)/suma $(BIN)/testListas

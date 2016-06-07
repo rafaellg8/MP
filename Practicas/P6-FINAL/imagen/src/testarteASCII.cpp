@@ -70,8 +70,8 @@ int main(){
         crear(arteASCII,origen.filas(),origen.columnas()); //Reservamos espacio para la matriz arteASCII
 
         cout << "\nLa imagen en arte ASCII es:\n";
-        if(origen.aArteASCII(grises,arteASCII,4500,cardinal))
-              cout<<arteASCII[0]<<endl;
+        if(origen.aArteASCII(grises,arteASCII,4501))
+              imprimir(arteASCII,origen.filas(),origen.columnas());
         else
                 cout << "La conversion no ha sido posible" << endl;
 

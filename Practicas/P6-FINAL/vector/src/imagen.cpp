@@ -60,14 +60,21 @@ const int Imagen::columnas() const{
 }
 
 void Imagen::set(int y, int x, byte v){
-    if (y < nfilas && x < ncolumnas) //Por seguridad que no escriba fuera y de error
+  if (y < nfilas && x < ncolumnas){ //Por seguridad que no escriba fuera y de error
         datos[y*ncolumnas+x]=v;
+  } else{
+    cerr << "Acceso fuera de los límites del vector" << endl;
+    exit(1);
+  }
 }
 
 const byte Imagen::get(int y, int x) const{
   if (y < nfilas && x < ncolumnas)
         return datos[y*ncolumnas+x];
-  else return NULL;
+  else{
+    cerr << "Acceso fuera de los límites del vector" << endl;
+    exit(1);
+  }
 }
 
 void Imagen::setPos(int i, byte v){
@@ -76,9 +83,12 @@ void Imagen::setPos(int i, byte v){
 }
 
 const byte Imagen::getPos(int i) const{
-  if (i<nfilas*ncolumnas)
+  if (i<nfilas*ncolumnas){
         return datos[i];
-  else return NULL;
+  }else{
+    cerr << "Acceso fuera de los límites del vector" << endl;
+    exit(1);
+  }
 }
 
 
@@ -98,7 +108,7 @@ Imagen::Imagen(int filas, int columnas){
 
 //Destructor
 Imagen::~Imagen(){
-        cout<<"\nDESTRUCTOR"<<endl;
+        //cout<<"\nDESTRUCTOR"<<endl;
         destruir();
 }
 
@@ -157,18 +167,20 @@ Imagen operator + (const Imagen imagenA, const Imagen imagenB){
  */
 bool Imagen::leerImagen(const char nombreFichero[]){
         int f, c;
+        bool exito = false;
         TipoImagen tipo = infoPGM(nombreFichero,f,c);
-        this->crear(f,c); //creamos el vector
         if(tipo==IMG_PGM_BINARIO) {
+                this->crear(f,c);
                 leerPGMBinario(nombreFichero,datos,this->nfilas,this->ncolumnas);
-                return true;
+                exito = true;
         }else{
                 if(tipo==IMG_PGM_TEXTO) {
+                        this->crear(f,c);
                         leerPGMTexto(nombreFichero,datos,f,c);
-                        return true;
+                        exito = true;
                 }
         }
-        return false;
+        return exito;
 }
 
 /**
@@ -231,7 +243,7 @@ const bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong)
         int cardinal=0;
         byte pixel=0;
         int contadorColumna=0;
-
+        bool status = false;
 //Obtenemos el tamanio de grises
         int size=0;
         while ((grises[size])!=' ') {
@@ -254,13 +266,9 @@ const bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong)
                         contadorColumna++;
                 }
                 arteASCII[contadorColumna]='\0';
-                return true;
+                status =  true;
         }
-
-        else {
-                return false;
-        }
-
+        return status;
 }
 
 /**
@@ -276,6 +284,7 @@ const bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong,
         int cardinal=tamGrises;
         byte pixel=0;
         int contadorColumna=0;
+        bool status=false;
 
         //Si es mayor que filas*columnas cabe en la imagen, la creamos y devuleve true
         if (maxlong > (filas*columnas)) {
@@ -292,12 +301,10 @@ const bool Imagen::aArteASCII (const char grises[],char arteASCII[],int maxlong,
                         contadorColumna++;
                 }
                 arteASCII[contadorColumna]='\0';
-                return true;
+                status =  true;
         }
 
-        else {
-                return false;
-        }
+        return status;
 }
 
 /*

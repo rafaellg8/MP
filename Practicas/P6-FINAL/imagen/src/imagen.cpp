@@ -27,38 +27,38 @@ void Imagen::copiar(byte ** data,int f, int c){
 }
 
 
-void Imagen::crear(int filas,int columnas){
+void Imagen::crear(int f,int c){
         if (datos!=0) {
                 //Si hay memoria reservada
                 destruir();
         }
-        this->nfilas = filas;
-        this->ncolumnas = columnas;
+        this->nfilas = f;
+        this->ncolumnas = c;
 
-        datos = new byte * [filas]; //array de punteros
+        datos = new byte * [nfilas]; //array de punteros
 
-        datos[0]= new byte [filas*columnas]; //Primera columna que apunta al array
+        datos[0]= new byte [nfilas*ncolumnas]; //Primera columna que apunta al array
 
         //Enlazamos desde la posicion 1 al final
-        for (int i=1; i< filas; i++) {
-                datos [i] = datos [i-1] + columnas;
+        for (int i=1; i< nfilas; i++) {
+                datos [i] = datos [i-1] + ncolumnas;
         }
 
         //asignar valor
-        for (int i=0; i<filas; i++)
-                for (int j=0; j<columnas; j++)
+        for (int i=0; i<nfilas; i++)
+                for (int j=0; j<ncolumnas; j++)
                         datos[i][j] = 0;
 }
 
 
 //Funcion auxliar al destructor
 void Imagen::destruir(){
-        if (datos[0] != 0)
+        if (datos != 0){
+            if (datos[0]!=0)
                 delete [] datos [0];  //Borramos la primera fila
 
-        if (datos != 0)
                 delete [] datos;
-
+        }
         datos = 0;
         nfilas = ncolumnas = 0;
 
@@ -76,7 +76,7 @@ void Imagen::set(int y, int x, byte v){
         if (this->nfilas > y && this->ncolumnas > x)
                 datos[y][x]=v;
         else {
-                cerr<<"Error posicion incorrecta fuera de la matriz en el set"<<endl;
+                cerr<<"Error posicion incorrecta más allá de la matriz en el set"<<endl;
                 exit(1);
         }
 }
@@ -85,7 +85,7 @@ const byte Imagen::get(int y, int x) const {
         if (this->nfilas > y && this->ncolumnas > x)
                 return datos[y][x];
         else {
-                cerr<<"Error posicion incorrecta fuera de la matriz en el get"<<endl;
+                cerr<<"Error posicion incorrecta más allá de la matriz en el get"<<endl;
                 exit(1);
         }
 }
@@ -97,7 +97,7 @@ void Imagen::setPos(int i, byte b){
         if (i<nfilas*ncolumnas)
                 datos[0][i]=b;
         else {
-                cerr<<"Error posicion incorrecta fuera de la matriz "<<endl;
+                cerr<<"Error posicion incorrecta más allá de la matriz "<<endl;
                 exit(1);
         }
 }
@@ -107,7 +107,7 @@ byte Imagen::getPos(int i){
         if (i<nfilas*ncolumnas)
                 return datos[0][i];
         else {
-                cerr<<"Error posicion incorrecta fuera de la matriz "<<endl;
+                cerr<<"Error posicion incorrecta más allá de la matriz"<<endl;
                 exit(1);
         }
 }
@@ -117,7 +117,7 @@ const byte Imagen::getPos(int i) const {
         if (i<nfilas*ncolumnas)
                 return datos[0][i];
         else {
-                cerr<<"Error posicion incorrecta fuera de la matriz "<<endl;
+                cerr<<"Error posicion incorrecta más allá de la matriz"<<endl;
                 exit(1);
         }
 }
@@ -158,11 +158,12 @@ Imagen & Imagen::operator = (const Imagen & copia){
 }
 
 Imagen operator + (const Imagen imagenA, const Imagen imagenB){
+        Imagen nueva;
         if (imagenA.filas()>0 && imagenB.filas()>0) {
                 int nuevaFila = imagenA.filas() > imagenB.filas() ? imagenA.filas() : imagenB.filas(); //Nos quedamos con el mayor numero de filas
                 int nuevaColumna = imagenA.columnas()+imagenB.columnas(); //Sumamos el numero de columnas
 
-                Imagen nueva (nuevaFila,nuevaColumna);
+                nueva.crear(nuevaFila,nuevaColumna);
 
                 // //Escribimos la imagen A
                 for (int i=0; i<imagenA.filas(); i++)
@@ -175,13 +176,12 @@ Imagen operator + (const Imagen imagenA, const Imagen imagenB){
                         for (int j=0; j<imagenB.ncolumnas; j++)
                                 nueva.setPos(i*nueva.columnas()+j+imagenA.columnas(),imagenB.get(i,j));
 
-                return nueva;
         }
         else{
-                cout<<"\nDevolviendo imagen nula, una de las 2 imagenes no existe:"<<endl;
-                Imagen nueva;
-                return nueva;
+                cerr<<"\nDevolviendo imagen nula, una de las 2 imagenes no existe:"<<endl;
         }
+
+        return nueva;
 }
 
 ostream & Imagen::imprimir(ofstream & out,char ** arteASCII, int f, int c){
@@ -197,6 +197,7 @@ ostream & Imagen::imprimir(ofstream & out,char ** arteASCII, int f, int c){
         return out;
 }
 
+
 /**+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  * FUNCIONES arteASCII
  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -204,17 +205,21 @@ ostream & Imagen::imprimir(ofstream & out,char ** arteASCII, int f, int c){
 bool Imagen::leerImagen(const char nombreFichero[]){
         int f, c;
         TipoImagen tipo = infoPGM(nombreFichero,f,c);
-        this->crear(f,c); //creamos el vector
+        bool status = false;
         if(tipo==IMG_PGM_BINARIO) {
+                //Si todo fue correcto creamos la matriz
+                this->crear(f,c);
                 leerPGMBinario(nombreFichero,datos,this->nfilas,this->ncolumnas);
-                return true;
+                status =  true;
         }else{
                 if(tipo==IMG_PGM_TEXTO) {
+                        //Si todo fue correcto creamos la matriz
+                        this->crear(f,c);
                         leerPGMTexto(nombreFichero,datos,f,c);
-                        return true;
+                        status =  true;
                 }
         }
-        return false;
+        return status;
 }
 
 
@@ -268,7 +273,7 @@ const bool Imagen::aArteASCII (const char grises[],char ** arteASCII,int maxlong
         int columnas = this->ncolumnas;
         int cardinal;
         byte pixel;
-
+        bool status=true;
         cardinal = 0;
         while (grises[cardinal] != ' ') { //Recorre la lista hasta que encuentra el espacio final
                 cardinal++;
@@ -285,12 +290,13 @@ const bool Imagen::aArteASCII (const char grises[],char ** arteASCII,int maxlong
                                 arteASCII[i][j] = grises[pixel*cardinal/256];
                         }
                 }
-                return true;
         }
 
-        else {
-                return false;
+        else{
+          status = false;
         }
+
+        return status;
 
 }
 
@@ -304,8 +310,9 @@ const bool Imagen::aArteASCII(const char grises[], char **arteASCII, int maxlong
 			}
 		}
 	}
-	else
+	else {
 		status = false;
+  }
 	return status;
 }
 
@@ -322,7 +329,7 @@ const bool Imagen::listaAArteASCII(const Lista &celdas){
                 arteASCII [i] = arteASCII [i-1] + ncolumnas;
         }
 
-        bool exito=true;
+        bool status=true;
         //asignar valor
         for (int i=0; i<nfilas; i++)
                 for (int j=0; j<ncolumnas; j++)
@@ -351,7 +358,7 @@ const bool Imagen::listaAArteASCII(const Lista &celdas){
                         }
                 }else{
                         cout << "La conversión " << x << " no ha sido posible" << endl;
-                        exito= false;
+                        status= false;
                 }
         }
         //Liberamos memoria igual que en el destructor
@@ -364,7 +371,7 @@ const bool Imagen::listaAArteASCII(const Lista &celdas){
         arteASCII = 0;
 
 
-        return exito;
+        return status;
 
 }
 
@@ -374,6 +381,7 @@ const bool Imagen::leeraArteASCII (const char * fichero,char * ficheroSalida,int
         int columnas = this->ncolumnas; //Para saltarnos el maxlong además de añadir /n
         int cardinal=0;
         byte pixel=0;
+        bool status = true; //Para la salida true correcto false algo fue mal
         int contadorColumna=0;
         int numCadenasGrises = 0;
         //Cadena de caracteres para la lectura del fichero grises
@@ -434,7 +442,7 @@ const bool Imagen::leeraArteASCII (const char * fichero,char * ficheroSalida,int
                 }
         }
         else {
-                return false;
+                status =  false;
         }
-        return true;
+        return status;
 }

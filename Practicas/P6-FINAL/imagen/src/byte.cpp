@@ -81,14 +81,16 @@ void print(byte b){
    @param b el @c byte que se quiere encender completamente.
  */
 void encender(byte &b){
-        b = 0b11111111;
+  unsigned int mascara = 0;
+  b=b | ~mascara;;
 }
 /**
    @brief apaga todos los bits
    @param b el @c byte que se quiere apagar completamente.
  */
 void apagar(byte &b){
-        b = 0b00000000;
+  unsigned int mascara = 0;
+  b=b & mascara;
 }
 
 /**
