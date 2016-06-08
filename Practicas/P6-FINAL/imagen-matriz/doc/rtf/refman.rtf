@@ -86,7 +86,7 @@
 1 \par
 }}Planos y ASCII}
 {\comment Generado porDoxgyen. }
-{\creatim \yr2016\mo6\dy6\hr23\min35\sec4}
+{\creatim \yr2016\mo6\dy8\hr18\min5\sec3}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
@@ -345,14 +345,14 @@ Dado un numero. }{
 }\par
 }}
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-const bool {\b aArteASCII} (const char grises[], char **arteASCII, int maxlong)\par
+const bool {\b aArteASCII} (const char grises[], char **arteASCII, int maxlong, int cardinal)\par
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Dado un. }{
 }\par
 }}
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-const bool {\b aArteASCII} (const char grises[], char **arteASCII, int maxlong, int cardinal)\par
+const bool {\b aArteASCII} (const char grises[], char **arteASCII, int maxlong)\par
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Dado un. }{
@@ -510,14 +510,14 @@ Par\'E1metros:\par}
 {\row }
 }
 }{
-Definici\'F3n en la l\'EDnea 146 del archivo imagen.cpp.}\par
+Definici\'F3n en la l\'EDnea 145 del archivo imagen.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 146                                   \{\par
-147         datos = 0; //Inicializamos la variable datos para que no haya problemas\par
-148         //se esta llamando desde el constructor por lo que no se ha creado antes\par
-149         //y no hay que destruir nada\par
-150         this->copiar(copia.datos,copia.nfilas,copia.ncolumnas);\par
-151 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 145                                   \{\par
+146         datos = 0; //Inicializamos la variable datos para que no haya problemas\par
+147         //se esta llamando desde el constructor por lo que no se ha creado antes\par
+148         //y no hay que destruir nada\par
+149         this->copiar(copia.datos,copia.nfilas,copia.ncolumnas);\par
+150 \}\par
 }
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
@@ -528,7 +528,7 @@ Documentaci\'F3n de las funciones miembro\par
 {\xe \v Imagen\:aArteASCII}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-const bool Imagen::aArteASCII (const char {\i grises}[], char ** {\i arteASCII}, int {\i maxlong})}}
+const bool Imagen::aArteASCII (const char {\i grises}[], char ** {\i arteASCII}, int {\i maxlong}, int {\i cardinal})}}
 \par
 {\bkmkstart AAAAAAAABG}
 {\bkmkend AAAAAAAABG}
@@ -552,7 +552,7 @@ Par\'E1metros:\par}
 \clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
 \clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
 \pard \widctlpar\intbl\adjustright
-{{\i arteASCII} \cell }{obtener la intensidad de cada pixel de grises y pasarlo a los caracteres de grises. \cell }
+{{\i arteASCII} \cell }{obtener la intensidad de cada pixel de arteASCII y pasarlo a los caracteres de grises. \cell }
 {\row }
 \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
 \clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
@@ -572,38 +572,40 @@ Par\'E1metros:\par}
 \pard \widctlpar\intbl\adjustright
 {{\i maxlong} \cell }{tama\'F1o de arteASCII \cell }
 {\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i cardinal} \cell }{tama\'F1o de los grises \cell }
+{\row }
 }
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
 Devuelve:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid true o false dependiendo de si la imagen es mayor o menor que maxlong \par
 }}{
-Definici\'F3n en la l\'EDnea 314 del archivo imagen.cpp.}\par
+Definici\'F3n en la l\'EDnea 303 del archivo imagen.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 314                                                                                \{\par
-315     bool correcto = true;\par
-316     int cardinal = 0;\par
-317   //Leemos el buffer para obtener el cardinal\par
-318     while (grises[cardinal]!=' ')\{\par
-319         cardinal++;\par
-320     \}\par
-321 \par
-322     if (maxlong >= nfilas*(ncolumnas))\{\par
-323         for (int i = 0; i < filas(); i++)\{\par
-324             for (int j = 0; j < columnas(); j++)\{\par
-325                 arteASCII[i][j] = grises[get(i,j)*cardinal/256];\par
-326             \}\par
-327         \}\par
-328     \}\par
-329     else\par
-330         correcto = false;\par
-331     return correcto;\par
-332 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 303                                                                                             \{\par
+304     bool status = true;\par
+305 \par
+306     if (nfilas*(ncolumnas)<maxlong)\{\par
+307         for (int i = 0; i < filas(); i++)\{\par
+308             for (int j = 0; j < columnas(); j++)\{\par
+309                 arteASCII[i][j] = grises[get(i,j)*cardinal/256];\par
+310             \}\par
+311         \}\par
+312     \}\par
+313     else \{\par
+314         status = false;\par
+315   \}\par
+316     return status;\par
+317 \}\par
 }
 }
 {\xe \v aArteASCII\:Imagen}
 {\xe \v Imagen\:aArteASCII}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-const bool Imagen::aArteASCII (const char {\i grises}[], char ** {\i arteASCII}, int {\i maxlong}, int {\i cardinal})}}
+const bool Imagen::aArteASCII (const char {\i grises}[], char ** {\i arteASCII}, int {\i maxlong})}}
 \par
 {\bkmkstart AAAAAAAABH}
 {\bkmkend AAAAAAAABH}
@@ -657,22 +659,39 @@ Par\'E1metros:\par}
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
 Devuelve:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid true o false dependiendo de si la imagen es mayor o menor que maxlong \par
 }}{
-Definici\'F3n en la l\'EDnea 298 del archivo imagen.cpp.}\par
+Definici\'F3n en la l\'EDnea 271 del archivo imagen.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 298                                                                                             \{\par
-299     bool correcto = true;\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 271                                                                                \{\par
+272         int filas = this->nfilas;\par
+273         int columnas = this->ncolumnas;\par
+274         int cardinal;\par
+275         byte pixel;\par
+276         bool status=true;\par
+277         cardinal = 0;\par
+278         while (grises[cardinal] != ' ') \{ //Recorre la lista hasta que encuentra el espacio final\par
+279                 cardinal++;\par
+280         \}\par
+281 \par
+282         //Si es mayor que filas*columnas cabe en la imagen, la creamos y devuleve true\par
+283         if (maxlong > (filas*columnas)) \{\par
+284                 for (int i=0; i<filas; i++) \{\par
+285                         //Obtenemos valor del pixel\par
+286                         for (int j=0; j<columnas; j++) \{   //Una columna menos porque la ultima tiene el caracter \\n\par
+287                                 pixel = this->get(i,j);\par
+288                                 //Asignamos a cada posicion de arteASCII su conversion a caracteres segun el rango de intensidad\par
+289                                 //de cada pixel\par
+290                                 arteASCII[i][j] = grises[pixel*cardinal/256];\par
+291                         \}\par
+292                 \}\par
+293         \}\par
+294 \par
+295         else\{\par
+296           status = false;\par
+297         \}\par
+298 \par
+299         return status;\par
 300 \par
-301     if (maxlong >= nfilas*(ncolumnas))\{\par
-302         for (int i = 0; i < filas(); i++)\{\par
-303             for (int j = 0; j < columnas(); j++)\{\par
-304                 arteASCII[i][j] = grises[get(i,j)*cardinal/256];\par
-305             \}\par
-306         \}\par
-307     \}\par
-308     else\par
-309         correcto = false;\par
-310     return correcto;\par
-311 \}\par
+301 \}\par
 }
 }
 {\xe \v columnas\:Imagen}
@@ -748,14 +767,14 @@ Valores devueltos:\par}
 {\row }
 }
 }{
-Definici\'F3n en la l\'EDnea 222 del archivo imagen.cpp.}\par
+Definici\'F3n en la l\'EDnea 226 del archivo imagen.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 222                                                                            \{\par
-223         return (esBinario) ?\par
-224                escribirPGMBinario (nombreFichero, (const_cast<const byte **>(this->datos)), this->nfilas, this->ncolumnas) :\par
-225                escribirPGMTexto(nombreFichero, (const_cast<const byte **>(this->datos)), this->nfilas, this->ncolumnas);\par
-226         //Pasamos los valores casting a constante para que no se modifiquen\par
-227 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 226                                                                            \{\par
+227         return (esBinario) ?\par
+228                escribirPGMBinario (nombreFichero, (const_cast<const byte **>(this->datos)), this->nfilas, this->ncolumnas) :\par
+229                escribirPGMTexto(nombreFichero, (const_cast<const byte **>(this->datos)), this->nfilas, this->ncolumnas);\par
+230         //Pasamos los valores casting a constante para que no se modifiquen\par
+231 \}\par
 }
 }
 {\xe \v filas\:Imagen}
@@ -826,7 +845,7 @@ Definici\'F3n en la l\'EDnea 84 del archivo imagen.cpp.}\par
 85         if (this->nfilas > y && this->ncolumnas > x)\par
 86                 return datos[y][x];\par
 87         else \{\par
-88                 cerr<<"Error posicion incorrecta fuera de la matriz en el get"<<endl;\par
+88                 cerr<<"Error posicion incorrecta m\'E1s all\'E1 de la matriz en el get"<<endl;\par
 89                 exit(1);\par
 90         \}\par
 91 \}\par
@@ -878,7 +897,7 @@ Definici\'F3n en la l\'EDnea 115 del archivo imagen.cpp.}\par
 117         if (i<nfilas*ncolumnas)\par
 118                 return datos[0][i];\par
 119         else \{\par
-120                 cerr<<"Error posicion incorrecta fuera de la matriz "<<endl;\par
+120                 cerr<<"Error posicion incorrecta m\'E1s all\'E1 de la matriz"<<endl;\par
 121                 exit(1);\par
 122         \}\par
 123 \}\par
@@ -904,7 +923,7 @@ Definici\'F3n en la l\'EDnea 105 del archivo imagen.cpp.}\par
 107         if (i<nfilas*ncolumnas)\par
 108                 return datos[0][i];\par
 109         else \{\par
-110                 cerr<<"Error posicion incorrecta fuera de la matriz "<<endl;\par
+110                 cerr<<"Error posicion incorrecta m\'E1s all\'E1 de la matriz"<<endl;\par
 111                 exit(1);\par
 112         \}\par
 113 \}\par
@@ -962,77 +981,78 @@ Par\'E1metros:\par}
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
 Devuelve:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid true o false dependiendo de si la imagen es mayor o menor que maxlong \par
 }}{
-Definici\'F3n en la l\'EDnea 335 del archivo imagen.cpp.}\par
+Definici\'F3n en la l\'EDnea 379 del archivo imagen.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 335                                                                                        \{\par
-336         int filas = this->nfilas;\par
-337         int columnas = this->ncolumnas; //Para saltarnos el maxlong adem\'E1s de a\'F1adir /n\par
-338         int cardinal=0;\par
-339         byte pixel=0;\par
-340         int contadorColumna=0;\par
-341         int numCadenasGrises = 0;\par
-342         //Cadena de caracteres para la lectura del fichero grises\par
-343         char buffer [500];\par
-344 \par
-345         //Abrimos flujo entrada para leer del fichero\par
-346         ifstream fi;\par
-347         fi.open(fichero);\par
-348 \par
-349         if (fi) \{\par
-350                 fi.getline(buffer,500); //lee la primera linea que es basura\par
-351                 fi>>numCadenasGrises;\par
-352                 fi.getline(buffer,500); //Leemos la basura seguida del 4 que es una linea entera\par
-353         \}\par
-354         else\{\par
-355                 std::cerr << "Error de lectura del fichero" << std::endl;\par
-356                 return false;\par
-357         \}\par
-358 \par
-359 //Si es mayor que filas*columnas cabe en la imagen, la creamos y devuelve true\par
-360         if (maxlong > (filas*columnas)) \{\par
-361                 //Creamos un archivo de salida para cada numero de cadenas de grises\par
-362                 for (int num=0; num<numCadenasGrises; num++) \{\par
-363                         int size = 0;\par
-364                         fi.getline(buffer,500);\par
-365 \par
-366                         //Obtenemos el cardinal del buffer leido\par
-367                         while ((buffer[size])!=' ') \{\par
-368                                 cout<<buffer[size]<<" ";\par
-369                                 size++;\par
-370                         \}\par
-371                         cardinal=size; //A\'F1adimos el caracter \\n\par
-372 \par
-373                         //Ahora creamos el fichero de salida\par
-374                         ofstream fo;\par
-375                         char salida [100] = \{0\};\par
-376                         strcat(salida,ficheroSalida);\par
-377                         char numeroSalida[32]; //Donde guardamos el entero pasado a caracter\par
-378                         sprintf(numeroSalida,"%d",num); //Lo pasamos a caracter\par
-379                         strcat(salida,numeroSalida); //Concatenamos\par
-380                         strcat(salida,".txt");\par
-381 \par
-382                         fo.open(salida);\par
-383                         for (int i=0; i<filas; i++) \{\par
-384                                 //Obtenemos valor del pixel\par
-385                                 for (int j=0; j<this->ncolumnas; j++) \{ //Una columna menos porque la ultima tiene el caracter \\n\par
-386                                         pixel = this->get(i,j);\par
-387                                         //Asignamos a cada posicion de arteASCII su conversion a caracteres segun el rango de intensidad\par
-388                                         //de cada pixel\par
-389                                         fo<<char(buffer[((pixel * cardinal/256))]);\par
-390                                         contadorColumna++;\par
-391                                 \}\par
-392                                 fo<<'\\n';\par
-393                                 contadorColumna++;\par
-394                         \}\par
-395                         fo.close();\par
-396                         strcpy(salida,"");\par
-397                 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 379                                                                                        \{\par
+380         int filas = this->nfilas;\par
+381         int columnas = this->ncolumnas; //Para saltarnos el maxlong adem\'E1s de a\'F1adir /n\par
+382         int cardinal=0;\par
+383         byte pixel=0;\par
+384         bool status = true; //Para la salida true correcto false algo fue mal\par
+385         int contadorColumna=0;\par
+386         int numCadenasGrises = 0;\par
+387         //Cadena de caracteres para la lectura del fichero grises\par
+388         char buffer [500];\par
+389 \par
+390         //Abrimos flujo entrada para leer del fichero\par
+391         ifstream fi;\par
+392         fi.open(fichero);\par
+393 \par
+394         if (fi) \{\par
+395                 fi.getline(buffer,500); //lee la primera linea que es basura\par
+396                 fi>>numCadenasGrises;\par
+397                 fi.getline(buffer,500); //Leemos la basura seguida del 4 que es una linea entera\par
 398         \}\par
-399         else \{\par
-400                 return false;\par
-401         \}\par
-402         return true;\par
-403 \}\par
+399         else\{\par
+400                 std::cerr << "Error de lectura del fichero" << std::endl;\par
+401                 return false;\par
+402         \}\par
+403 \par
+404 //Si es mayor que filas*columnas cabe en la imagen, la creamos y devuelve true\par
+405         if (maxlong > (filas*columnas)) \{\par
+406                 //Creamos un archivo de salida para cada numero de cadenas de grises\par
+407                 for (int num=0; num<numCadenasGrises; num++) \{\par
+408                         int size = 0;\par
+409                         fi.getline(buffer,500);\par
+410 \par
+411                         //Obtenemos el cardinal del buffer leido\par
+412                         while ((buffer[size])!=' ') \{\par
+413                                 cout<<buffer[size]<<" ";\par
+414                                 size++;\par
+415                         \}\par
+416                         cardinal=size; //A\'F1adimos el caracter \\n\par
+417 \par
+418                         //Ahora creamos el fichero de salida\par
+419                         ofstream fo;\par
+420                         char salida [100] = \{0\};\par
+421                         strcat(salida,ficheroSalida);\par
+422                         char numeroSalida[32]; //Donde guardamos el entero pasado a caracter\par
+423                         sprintf(numeroSalida,"%d",num); //Lo pasamos a caracter\par
+424                         strcat(salida,numeroSalida); //Concatenamos\par
+425                         strcat(salida,".txt");\par
+426 \par
+427                         fo.open(salida);\par
+428                         for (int i=0; i<filas; i++) \{\par
+429                                 //Obtenemos valor del pixel\par
+430                                 for (int j=0; j<this->ncolumnas; j++) \{ //Una columna menos porque la ultima tiene el caracter \\n\par
+431                                         pixel = this->get(i,j);\par
+432                                         //Asignamos a cada posicion de arteASCII su conversion a caracteres segun el rango de intensidad\par
+433                                         //de cada pixel\par
+434                                         fo<<char(buffer[((pixel * cardinal/256))]);\par
+435                                         contadorColumna++;\par
+436                                 \}\par
+437                                 fo<<'\\n';\par
+438                                 contadorColumna++;\par
+439                         \}\par
+440                         fo.close();\par
+441                         strcpy(salida,"");\par
+442                 \}\par
+443         \}\par
+444         else \{\par
+445                 status =  false;\par
+446         \}\par
+447         return status;\par
+448 \}\par
 }
 }
 {\xe \v leerImagen\:Imagen}
@@ -1083,18 +1103,22 @@ Definici\'F3n en la l\'EDnea 205 del archivo imagen.cpp.}\par
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 205                                                  \{\par
 206         int f, c;\par
 207         TipoImagen tipo = infoPGM(nombreFichero,f,c);\par
-208         this->crear(f,c); //creamos el vector\par
+208         bool status = false;\par
 209         if(tipo==IMG_PGM_BINARIO) \{\par
-210                 leerPGMBinario(nombreFichero,datos,this->nfilas,this->ncolumnas);\par
-211                 return true;\par
-212         \}else\{\par
-213                 if(tipo==IMG_PGM_TEXTO) \{\par
-214                         leerPGMTexto(nombreFichero,datos,f,c);\par
-215                         return true;\par
-216                 \}\par
-217         \}\par
-218         return false;\par
-219 \}\par
+210                 //Si todo fue correcto creamos la matriz\par
+211                 this->crear(f,c);\par
+212                 leerPGMBinario(nombreFichero,datos,this->nfilas,this->ncolumnas);\par
+213                 status =  true;\par
+214         \}else\{\par
+215                 if(tipo==IMG_PGM_TEXTO) \{\par
+216                         //Si todo fue correcto creamos la matriz\par
+217                         this->crear(f,c);\par
+218                         leerPGMTexto(nombreFichero,datos,f,c);\par
+219                         status =  true;\par
+220                 \}\par
+221         \}\par
+222         return status;\par
+223 \}\par
 }
 }
 {\xe \v listaAArteASCII\:Imagen}
@@ -1125,66 +1149,65 @@ Par\'E1metros:\par}
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
 Devuelve:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid turre o false dependiendo si se ha leido o no correctamente \par
 }}{
-Definici\'F3n en la l\'EDnea 405 del archivo imagen.cpp.}\par
+Definici\'F3n en la l\'EDnea 320 del archivo imagen.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 405                                                      \{\par
-406 \par
-407         char ** arteASCII = 0;\par
-408         arteASCII = new char * [nfilas]; //array de punteros\par
-409 \par
-410         arteASCII[0]= new char [nfilas*ncolumnas]; //Primera columna que apunta al array\par
-411 \par
-412         //Enlazamos desde la posicion 1 al final\par
-413         for (int i=1; i< nfilas; i++) \{\par
-414                 arteASCII [i] = arteASCII [i-1] + ncolumnas;\par
-415         \}\par
-416 \par
-417         bool exito=true;\par
-418         //asignar valor\par
-419         for (int i=0; i<nfilas; i++)\par
-420                 for (int j=0; j<ncolumnas; j++)\par
-421                         arteASCII[i][j] = 0;\par
-422 \par
-423         //Para cada lista de celdas\par
-424         for(int x=0; x<celdas.longitud(); x++) \{\par
-425                 string gris = celdas.getCelda(x); //Aniadimos el espacio final\par
-426                 const char *gris_char = gris.c_str();\par
-427 \par
-428                 //strcpy(gris_char, gris.c_str());\par
-429                 bool estado;\par
-430 \par
-431 \par
-432                 estado = this->aArteASCII(gris_char, arteASCII, this->nfilas*(this->ncolumnas+1)+1);\par
-433 \par
-434                 if(estado) \{\par
-435                         char nombre_aux[255]="";\par
-436                         ofstream fsalida;\par
-437                         cout<<nombre_aux<<" "<<"ascii"<<x<<".txt"<<endl;\par
-438                         sprintf(nombre_aux, "ascii%d.txt",x); //Formateamos el nombre_aux\par
-439                         if (arteASCII !=NULL) \{\par
-440                                 fsalida.open(nombre_aux);\par
-441                                 imprimir(fsalida,arteASCII,this->nfilas,this->ncolumnas);\par
-442                                 fsalida.close();\par
-443 \par
-444                         \}\par
-445                 \}else\{\par
-446                         cout << "La conversi\'F3n " << x << " no ha sido posible" << endl;\par
-447                         exito= false;\par
-448                 \}\par
-449         \}\par
-450         //Liberamos memoria igual que en el destructor\par
-451         if (arteASCII[0] != 0) //Si fila de filas * columnas no esta vacia\par
-452                 delete [] arteASCII [0];  //Borramos la primera fila\par
-453 \par
-454         if (arteASCII != 0)\par
-455                 delete [] arteASCII;\par
-456 \par
-457         arteASCII = 0;\par
-458 \par
-459 \par
-460         return exito;\par
-461 \par
-462 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 320                                                      \{\par
+321 \par
+322         char ** arteASCII = 0;\par
+323         arteASCII = new char * [nfilas]; //array de punteros\par
+324 \par
+325         arteASCII[0]= new char [nfilas*ncolumnas]; //Primera columna que apunta al array\par
+326 \par
+327         //Enlazamos desde la posicion 1 al final\par
+328         for (int i=1; i< nfilas; i++) \{\par
+329                 arteASCII [i] = arteASCII [i-1] + ncolumnas;\par
+330         \}\par
+331 \par
+332         bool status=true;\par
+333         //asignar valor\par
+334         for (int i=0; i<nfilas; i++)\par
+335                 for (int j=0; j<ncolumnas; j++)\par
+336                         arteASCII[i][j] = 0;\par
+337 \par
+338         //Para cada lista de celdas\par
+339         for(int x=0; x<celdas.longitud(); x++) \{\par
+340                 string gris = celdas.getCelda(x);\par
+341                 const char *gris_char = gris.c_str();\par
+342 \par
+343                 bool estado;\par
+344 \par
+345 \par
+346                 estado = this->aArteASCII(gris_char, arteASCII, this->nfilas*(this->ncolumnas+1)+1);\par
+347 \par
+348                 if(estado) \{\par
+349                         char nombre_aux[255]="";\par
+350                         ofstream fsalida;\par
+351                         cout<<nombre_aux<<" "<<"ascii"<<x<<".txt"<<endl;\par
+352                         sprintf(nombre_aux, "ascii%d.txt",x); //Formateamos el nombre_aux\par
+353                         if (arteASCII !=NULL) \{\par
+354                                 fsalida.open(nombre_aux);\par
+355                                 imprimir(fsalida,arteASCII,this->nfilas,this->ncolumnas);\par
+356                                 fsalida.close();\par
+357 \par
+358                         \}\par
+359                 \}else\{\par
+360                         cout << "La conversi\'F3n " << x << " no ha sido posible" << endl;\par
+361                         status= false;\par
+362                 \}\par
+363         \}\par
+364         //Liberamos memoria igual que en el destructor\par
+365         if (arteASCII[0] != 0) //Si fila de filas * columnas no esta vacia\par
+366                 delete [] arteASCII [0];  //Borramos la primera fila\par
+367 \par
+368         if (arteASCII != 0)\par
+369                 delete [] arteASCII;\par
+370 \par
+371         arteASCII = 0;\par
+372 \par
+373 \par
+374         return status;\par
+375 \par
+376 \}\par
 }
 }
 {\xe \v operator=\:Imagen}
@@ -1214,12 +1237,12 @@ Par\'E1metros:\par}
 }
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ SOBRECARGA DE OPERADORES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ \par
 }{
-Definici\'F3n en la l\'EDnea 156 del archivo imagen.cpp.}\par
+Definici\'F3n en la l\'EDnea 155 del archivo imagen.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 156                                                 \{\par
-157         this->copiar(copia.datos,copia.nfilas,copia.ncolumnas);\par
-158         return *this;\par
-159 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 155                                                 \{\par
+156         this->copiar(copia.datos,copia.nfilas,copia.ncolumnas);\par
+157         return *this;\par
+158 \}\par
 }
 }
 {\xe \v plano\:Imagen}
@@ -1256,42 +1279,42 @@ Par\'E1metros:\par}
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
 Devuelve:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid una imagen \par
 }}{
-Definici\'F3n en la l\'EDnea 230 del archivo imagen.cpp.}\par
+Definici\'F3n en la l\'EDnea 234 del archivo imagen.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 230                           \{\par
-231         byte bAux; //Byte auxiliar que sacaremos de la imagen original\par
-232         bool bit; //Valor del bit kesimo\par
-233         Imagen copia(this->nfilas,this->ncolumnas); //Creamos una imagen copia\par
-234         //Recorremos pixeles\par
-235         int i=0; //Contador en forma de array\par
-236         for (int fila=0; fila<this->nfilas; fila++) \{\par
-237                 for (int columna=0; columna<this->ncolumnas; columna++) \{\par
-238                         //Obtenemos el byte\par
-239                         bAux = this->getPos(i);\par
-240                         //Ahora obtenemos el valor del bit k-esimo\par
-241                         //Como recorremos en nuestra clase el vector de la forma 7 6 5 4 3 2 1 0\par
-242                         //A la hora de enmascarar, le pasamos la 7-kesima de la forma que la posicion 0 es la 7 en nuestro caso\par
-243                         //Entonces si queremos en realidad una posicion, necesitamos pasarlo asi\par
-244                         bit = getbit(bAux,k);\par
-245                         //Ahora ponemos en el bit mas significado del pixel actual de la imagen copia el valor del bit de la imagen original\par
-246                         //Ponemos ese a 1 y los demas a 0 si esta encendido\par
-247 \par
-248                         if (bit == 1) \{\par
-249                                 on(copia.datos[fila][columna],7);\par
-250                                 for (int j=0; j<7; j++)\par
-251                                         off(copia.datos[fila][columna],j);\par
-252                         \}\par
-253                         else\{\par
-254                                 off(copia.datos[fila][columna],7);\par
-255                                 for (int j=0; j<7; j++)\par
-256                                         off(copia.datos[fila][columna],j);\par
-257                         \}\par
-258                         i++;\par
-259                 \} //For columnas\par
-260         \} //For filas\par
-261         return copia;\par
-262 \par
-263 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 234                           \{\par
+235         byte bAux; //Byte auxiliar que sacaremos de la imagen original\par
+236         bool bit; //Valor del bit kesimo\par
+237         Imagen copia(this->nfilas,this->ncolumnas); //Creamos una imagen copia\par
+238         //Recorremos pixeles\par
+239         int i=0; //Contador en forma de array\par
+240         for (int fila=0; fila<this->nfilas; fila++) \{\par
+241                 for (int columna=0; columna<this->ncolumnas; columna++) \{\par
+242                         //Obtenemos el byte\par
+243                         bAux = this->getPos(i);\par
+244                         //Ahora obtenemos el valor del bit k-esimo\par
+245                         //Como recorremos en nuestra clase el vector de la forma 7 6 5 4 3 2 1 0\par
+246                         //A la hora de enmascarar, le pasamos la 7-kesima de la forma que la posicion 0 es la 7 en nuestro caso\par
+247                         //Entonces si queremos en realidad una posicion, necesitamos pasarlo asi\par
+248                         bit = getbit(bAux,k);\par
+249                         //Ahora ponemos en el bit mas significado del pixel actual de la imagen copia el valor del bit de la imagen original\par
+250                         //Ponemos ese a 1 y los demas a 0 si esta encendido\par
+251 \par
+252                         if (bit == 1) \{\par
+253                                 on(copia.datos[fila][columna],7);\par
+254                                 for (int j=0; j<7; j++)\par
+255                                         off(copia.datos[fila][columna],j);\par
+256                         \}\par
+257                         else\{\par
+258                                 off(copia.datos[fila][columna],7);\par
+259                                 for (int j=0; j<7; j++)\par
+260                                         off(copia.datos[fila][columna],j);\par
+261                         \}\par
+262                         i++;\par
+263                 \} //For columnas\par
+264         \} //For filas\par
+265         return copia;\par
+266 \par
+267 \}\par
 }
 }
 {\xe \v set\:Imagen}
@@ -1339,7 +1362,7 @@ Definici\'F3n en la l\'EDnea 75 del archivo imagen.cpp.}\par
 76         if (this->nfilas > y && this->ncolumnas > x)\par
 77                 datos[y][x]=v;\par
 78         else \{\par
-79                 cerr<<"Error posicion incorrecta fuera de la matriz en el set"<<endl;\par
+79                 cerr<<"Error posicion incorrecta m\'E1s all\'E1 de la matriz en el set"<<endl;\par
 80                 exit(1);\par
 81         \}\par
 82 \}\par
@@ -1386,7 +1409,7 @@ Definici\'F3n en la l\'EDnea 95 del archivo imagen.cpp.}\par
 97         if (i<nfilas*ncolumnas)\par
 98                 datos[0][i]=b;\par
 99         else \{\par
-100                 cerr<<"Error posicion incorrecta fuera de la matriz "<<endl;\par
+100                 cerr<<"Error posicion incorrecta m\'E1s all\'E1 de la matriz "<<endl;\par
 101                 exit(1);\par
 102         \}\par
 103 \}\par
@@ -1451,14 +1474,15 @@ Par\'E1metros:\par}
 {\row }
 }
 }{
-Definici\'F3n en la l\'EDnea 161 del archivo imagen.cpp.}\par
+Definici\'F3n en la l\'EDnea 160 del archivo imagen.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 161                                                               \{\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 160                                                               \{\par
+161         Imagen nueva;\par
 162         if (imagenA.filas()>0 && imagenB.filas()>0) \{\par
 163                 int nuevaFila = imagenA.filas() > imagenB.filas() ? imagenA.filas() : imagenB.filas(); //Nos quedamos con el mayor numero de filas\par
 164                 int nuevaColumna = imagenA.columnas()+imagenB.columnas(); //Sumamos el numero de columnas\par
 165 \par
-166                 Imagen nueva (nuevaFila,nuevaColumna);\par
+166                 nueva.crear(nuevaFila,nuevaColumna);\par
 167 \par
 168                 // //Escribimos la imagen A\par
 169                 for (int i=0; i<imagenA.filas(); i++)\par
@@ -1471,14 +1495,13 @@ Definici\'F3n en la l\'EDnea 161 del archivo imagen.cpp.}\par
 176                         for (int j=0; j<imagenB.ncolumnas; j++)\par
 177                                 nueva.setPos(i*nueva.columnas()+j+imagenA.columnas(),imagenB.get(i,j));\par
 178 \par
-179                 return nueva;\par
-180         \}\par
-181         else\{\par
-182                 cout<<"\\nDevolviendo imagen nula, una de las 2 imagenes no existe:"<<endl;\par
-183                 Imagen nueva;\par
-184                 return nueva;\par
-185         \}\par
-186 \}\par
+179         \}\par
+180         else\{\par
+181                 cerr<<"\\nDevolviendo imagen nula, una de las 2 imagenes no existe:"<<endl;\par
+182         \}\par
+183 \par
+184         return nueva;\par
+185 \}\par
 }
 }
 {\xe \v operator<<\:Imagen}
@@ -2149,7 +2172,7 @@ Clase imagen blanco y negro. \par
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Rafael Lachica Garrido / V\'EDctor Urquizar Hinojosa \par
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Rafael Lachica Garrido / V\'EDctor Urquiza Hinojosa \par
 }}{
 Definici\'F3n en el archivo {\b imagen.h}.}\par
 }
@@ -2190,7 +2213,7 @@ Clase para la estructura de datos de lista de strings. \par
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Rafael Lachica Garrido / V\'EDctor Urqu\'EDzar Hinojosa Permite el manejo de cadenas (strings) en una lista enlazada \par
+Autor:\par}\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid Rafael Lachica Garrido / V\'EDctor Urquiza Hinojosa Permite el manejo de cadenas (strings) en una lista enlazada \par
 }}{
 Definici\'F3n en el archivo {\b lista.h}.}\par
 }
@@ -2405,23 +2428,23 @@ Valores devueltos:\par}
 {\row }
 }
 }{
-Definici\'F3n en la l\'EDnea 171 del archivo pgm.cpp.}\par
+Definici\'F3n en la l\'EDnea 85 del archivo pgm.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 171                                                                                             \{\par
-172   ofstream f(nombre);\par
-173   bool res= true;\par
-174 \par
-175   if (f) \{\par
-176     f << "P5" << endl;\par
-177     f << columnas << ' ' << filas << endl;\par
-178     f << 255 << endl;\par
-179     f.write(reinterpret_cast<const char *>(datos[0]),filas*columnas);\par
-180     if (!f) res=false;\par
-181   \}\par
-182 \par
-183   f.close();\par
-184   return res;\par
-185 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 85                                                                                             \{\par
+86         ofstream f(nombre);\par
+87         bool res= true;\par
+88 \par
+89         if (f) \{\par
+90                 f << "P5" << endl;\par
+91                 f << columnas << ' ' << filas << endl;\par
+92                 f << 255 << endl;\par
+93                 f.write(reinterpret_cast<const char *>(datos[0]),filas*columnas);\par
+94                 if (!f) res=false;\par
+95         \}\par
+96 \par
+97         f.close();\par
+98         return res;\par
+99 \}\par
 }
 }
 {\xe \v escribirPGMTexto\:pgm.h}
@@ -2483,32 +2506,32 @@ Valores devueltos:\par}
 {\row }
 }
 }{
-Definici\'F3n en la l\'EDnea 207 del archivo pgm.cpp.}\par
+Definici\'F3n en la l\'EDnea 101 del archivo pgm.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 207                                                                                         \{\par
-208   ofstream f(nombre);\par
-209   bool res= true;\par
-210   unsigned int numero = 0;\par
-211 \par
-212   if (f) \{\par
-213     f << "P2" << endl;\par
-214     f << columnas << ' ' << filas << endl;\par
-215     f << 255 << endl;\par
-216     for (int i = 0; i < filas; i++) \{\par
-217       for(int j = 0; j < columnas; j++)\{\par
-218         numero = (unsigned int)datos[i][j];\par
-219         f << numero;\par
-220         f << ' ';\par
-221       \}\par
-222     \}\par
-223     f.close();\par
-224   \}\par
-225   else\par
-226     res=false;\par
-227 \par
-228 \par
-229   return res;\par
-230 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 101                                                                                         \{\par
+102         ofstream f(nombre);\par
+103         bool res= true;\par
+104         unsigned int buffer = 0;\par
+105 \par
+106         if (f) \{\par
+107                 f << "P2" << endl;\par
+108                 f << columnas << ' ' << filas << endl;\par
+109                 f << 255 << endl;\par
+110                 for (int i = 0; i < filas; i++) \{\par
+111                         for(int j = 0; j < columnas; j++) \{\par
+112                                 buffer = (unsigned int)datos[i][j];\par
+113                                 f << buffer;\par
+114                                 f << ' ';\par
+115                         \}\par
+116                 \}\par
+117                 f.close();\par
+118         \}\par
+119         else\par
+120                 res=false;\par
+121 \par
+122 \par
+123         return res;\par
+124 \}\par
 }
 }
 {\xe \v infoPGM\:pgm.h}
@@ -2629,33 +2652,23 @@ Valores devueltos:\par}
 {\row }
 }
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
-Precondici\'F3n:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid datos debe tener tama\'F1o suficiente para almacenar {\i filas}  x {\i columnas}  bytes de datos de la imagen.\par
-}{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
-bool leerPGMBinario (const char nombre[], unsigned char datos[], int& filas, int& columnas) \{ bool exito= false; filas=0; columnas=0; ifstream f(nombre);\par
-if (LeerTipo(f)==IMG_PGM_BINARIO) if (LeerCabecera (f, filas, columnas)) if (f.read(reinterpret_cast<char *>(datos),filas*columnas)) exito= true;\par
-return exito; \}\par
-{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
- bool leerPGMTexto (const char nombre[], unsigned char datos[], int& filas, int &columnas) \{ bool exito = false; filas = 0; columnas = 0; int buffer; ifstream f(nombre); //Flujo de entrada con el nombre del archivo\par
-Comprobamos que sea de tipo PGMTexto if (LeerTipo(f)==IMG_PGM_TEXTO) if (LeerCabecera(f,filas,columnas))\{ for (int i=0;i<filas*columnas;i++)\{ f>>buffer; cout<<buffer<< " "; datos[i]=buffer; \} exito= true; \}\par
-return exito; \} {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
-bool escribirPGMBinario (const char nombre[], const unsigned char datos[], int filas, int columnas) \{ ofstream f(nombre); bool res= true;\par
-if (f) \{ f << "P5" << endl; f << columnas << ' ' << filas << endl; f << 255 << endl; f.write(reinterpret_cast<const char *>(datos),filas*columnas); if (!f) res=false; \} return res; \}\par
-bool escribirPGMTexto (const char nombre[], const unsigned char datos[], int filas, int columnas) \{ ofstream f(nombre); bool res = true;\par
-if (f) \{ f << "P2" << endl; f << columnas << ' ' << filas << endl; f << 255 << endl; for (int i=0;i<filas*columnas;i++)\{ f << (int)datos[i] << ' '; \} if (!f) res=false; \} return res; \} \par
-}{
-Definici\'F3n en la l\'EDnea 159 del archivo pgm.cpp.}\par
+Precondici\'F3n:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid datos debe tener tama\'F1o suficiente para almacenar {\i filas}  x {\i columnas}  bytes de datos de la imagen. \par
+}}{
+Definici\'F3n en la l\'EDnea 127 del archivo pgm.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 159                                                                                    \{\par
-160   bool exito= false;\par
-161   ifstream f(nombre);\par
-162 \par
-163   if (LeerTipo(f)==IMG_PGM_BINARIO)\par
-164     if (LeerCabecera (f, filas, columnas))\par
-165         if (f.read(reinterpret_cast<char *>(datos[0]),filas*columnas))\par
-166           exito= true;\par
-167   f.close();\par
-168   return exito;\par
-169 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 127                                                                                    \{\par
+128         bool exito= false;\par
+129         ifstream f(nombre);\par
+130 \par
+131         if (f) \{\par
+132                 if (LeerTipo(f)==IMG_PGM_BINARIO)\par
+133                         if (LeerCabecera (f, filas, columnas))\par
+134                                 if (f.read(reinterpret_cast<char *>(datos[0]),filas*columnas))\par
+135                                         exito= true;\par
+136                 f.close(); //Cierro fichero\par
+137         \}\par
+138         return exito;\par
+139 \}\par
 }
 }
 {\xe \v leerPGMTexto\:pgm.h}
@@ -2719,28 +2732,29 @@ Valores devueltos:\par}
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
 Precondici\'F3n:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid datos debe tener tama\'F1o suficiente para almacenar {\i filas}  x {\i columnas}  bytes de datos de la imagen. \par
 }}{
-Definici\'F3n en la l\'EDnea 187 del archivo pgm.cpp.}\par
+Definici\'F3n en la l\'EDnea 142 del archivo pgm.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 187                                                                                  \{\par
-188   bool exito= false;\par
-189   ifstream f(nombre);\par
-190   int numero=0;\par
-191 \par
-192   if (LeerTipo(f)==IMG_PGM_TEXTO)\par
-193     if (LeerCabecera (f, filas, columnas))\{\par
-194       for (int i = 0; i < filas; ++i) \{\par
-195         for(int j = 0; j < columnas; j++)\{\par
-196           f >> numero;\par
-197           datos[i][j] = numero;\par
-198         \}\par
-199       \}\par
-200     \}\par
-201   if(f)\{\par
-202     exito = true;\par
-203   \}\par
-204   f.close();\par
-205  return exito;\par
-206 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 142                                                                                  \{\par
+143         bool exito= false;\par
+144         ifstream f(nombre); //Flujo de entrada con el nombre del archivo\par
+145 \par
+146         int buffer=0;\par
+147         if (f) \{\par
+148                 if (LeerTipo(f)==IMG_PGM_TEXTO)\par
+149                         if (LeerCabecera (f, filas, columnas)) \{\par
+150                                 for (int i = 0; i < filas; ++i) \{\par
+151                                         for(int j = 0; j < columnas; j++) \{\par
+152                                                 f >> buffer;\par
+153                                                 datos[i][j] = buffer;\par
+154                                         \}\par
+155                                 \}\par
+156                         \}\par
+157 \par
+158                 exito = true;\par
+159                 f.close();\par
+160         \}\par
+161         return exito;\par
+162 \}\par
 }
 }
 \par \pard\plain 
@@ -2794,13 +2808,6 @@ Consulta el tipo de imagen del archivo y sus dimensiones. }{
 }\par
 }}
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-bool {\b leerPGMBinario} (const char nombre[], {\b byte} **datos, int &filas, int &columnas)\par
-{
-\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Lee una imagen de tipo PGM binario. }{
-}\par
-}}
-\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b escribirPGMBinario} (const char nombre[], const {\b byte} **datos, int filas, int columnas)\par
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -2808,17 +2815,24 @@ Escribe una imagen de tipo PGM binario. }{
 }\par
 }}
 \pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-bool {\b leerPGMTexto} (const char nombre[], {\b byte} **datos, int &filas, int &columnas)\par
-{
-\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Lee una imagen de tipo PGM Texto. }{
-}\par
-}}
-\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b escribirPGMTexto} (const char nombre[], const {\b byte} **datos, int filas, int columnas)\par
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Escribe una imagen de tipo PGM Texto. }{
+}\par
+}}
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+bool {\b leerPGMBinario} (const char nombre[], {\b byte} **datos, int &filas, int &columnas)\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Lee una imagen de tipo PGM binario. }{
+}\par
+}}
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+bool {\b leerPGMTexto} (const char nombre[], {\b byte} **datos, int &filas, int &columnas)\par
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Lee una imagen de tipo PGM Texto. }{
 }\par
 }}
 }
@@ -2897,23 +2911,23 @@ Valores devueltos:\par}
 {\row }
 }
 }{
-Definici\'F3n en la l\'EDnea 171 del archivo pgm.cpp.}\par
+Definici\'F3n en la l\'EDnea 85 del archivo pgm.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 171                                                                                             \{\par
-172   ofstream f(nombre);\par
-173   bool res= true;\par
-174 \par
-175   if (f) \{\par
-176     f << "P5" << endl;\par
-177     f << columnas << ' ' << filas << endl;\par
-178     f << 255 << endl;\par
-179     f.write(reinterpret_cast<const char *>(datos[0]),filas*columnas);\par
-180     if (!f) res=false;\par
-181   \}\par
-182 \par
-183   f.close();\par
-184   return res;\par
-185 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 85                                                                                             \{\par
+86         ofstream f(nombre);\par
+87         bool res= true;\par
+88 \par
+89         if (f) \{\par
+90                 f << "P5" << endl;\par
+91                 f << columnas << ' ' << filas << endl;\par
+92                 f << 255 << endl;\par
+93                 f.write(reinterpret_cast<const char *>(datos[0]),filas*columnas);\par
+94                 if (!f) res=false;\par
+95         \}\par
+96 \par
+97         f.close();\par
+98         return res;\par
+99 \}\par
 }
 }
 {\xe \v escribirPGMTexto\:pgm.cpp}
@@ -2975,32 +2989,32 @@ Valores devueltos:\par}
 {\row }
 }
 }{
-Definici\'F3n en la l\'EDnea 207 del archivo pgm.cpp.}\par
+Definici\'F3n en la l\'EDnea 101 del archivo pgm.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 207                                                                                         \{\par
-208   ofstream f(nombre);\par
-209   bool res= true;\par
-210   unsigned int numero = 0;\par
-211 \par
-212   if (f) \{\par
-213     f << "P2" << endl;\par
-214     f << columnas << ' ' << filas << endl;\par
-215     f << 255 << endl;\par
-216     for (int i = 0; i < filas; i++) \{\par
-217       for(int j = 0; j < columnas; j++)\{\par
-218         numero = (unsigned int)datos[i][j];\par
-219         f << numero;\par
-220         f << ' ';\par
-221       \}\par
-222     \}\par
-223     f.close();\par
-224   \}\par
-225   else\par
-226     res=false;\par
-227 \par
-228 \par
-229   return res;\par
-230 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 101                                                                                         \{\par
+102         ofstream f(nombre);\par
+103         bool res= true;\par
+104         unsigned int buffer = 0;\par
+105 \par
+106         if (f) \{\par
+107                 f << "P2" << endl;\par
+108                 f << columnas << ' ' << filas << endl;\par
+109                 f << 255 << endl;\par
+110                 for (int i = 0; i < filas; i++) \{\par
+111                         for(int j = 0; j < columnas; j++) \{\par
+112                                 buffer = (unsigned int)datos[i][j];\par
+113                                 f << buffer;\par
+114                                 f << ' ';\par
+115                         \}\par
+116                 \}\par
+117                 f.close();\par
+118         \}\par
+119         else\par
+120                 res=false;\par
+121 \par
+122 \par
+123         return res;\par
+124 \}\par
 }
 }
 {\xe \v infoPGM\:pgm.cpp}
@@ -3077,32 +3091,67 @@ bool leerPGMBinario (const char {\i nombre}[], {\b byte} ** {\i datos}, int & {\
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Lee una imagen de tipo PGM binario. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
-bool leerPGMBinario (const char nombre[], unsigned char datos[], int& filas, int& columnas) \{ bool exito= false; filas=0; columnas=0; ifstream f(nombre);\par
-if (LeerTipo(f)==IMG_PGM_BINARIO) if (LeerCabecera (f, filas, columnas)) if (f.read(reinterpret_cast<char *>(datos),filas*columnas)) exito= true;\par
-return exito; \}\par
-{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
- bool leerPGMTexto (const char nombre[], unsigned char datos[], int& filas, int &columnas) \{ bool exito = false; filas = 0; columnas = 0; int buffer; ifstream f(nombre); //Flujo de entrada con el nombre del archivo\par
-Comprobamos que sea de tipo PGMTexto if (LeerTipo(f)==IMG_PGM_TEXTO) if (LeerCabecera(f,filas,columnas))\{ for (int i=0;i<filas*columnas;i++)\{ f>>buffer; cout<<buffer<< " "; datos[i]=buffer; \} exito= true; \}\par
-return exito; \} {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
-bool escribirPGMBinario (const char nombre[], const unsigned char datos[], int filas, int columnas) \{ ofstream f(nombre); bool res= true;\par
-if (f) \{ f << "P5" << endl; f << columnas << ' ' << filas << endl; f << 255 << endl; f.write(reinterpret_cast<const char *>(datos),filas*columnas); if (!f) res=false; \} return res; \}\par
-bool escribirPGMTexto (const char nombre[], const unsigned char datos[], int filas, int columnas) \{ ofstream f(nombre); bool res = true;\par
-if (f) \{ f << "P2" << endl; f << columnas << ' ' << filas << endl; f << 255 << endl; for (int i=0;i<filas*columnas;i++)\{ f << (int)datos[i] << ' '; \} if (!f) res=false; \} return res; \} \par
-}{
-Definici\'F3n en la l\'EDnea 159 del archivo pgm.cpp.}\par
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Par\'E1metros:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i nombre} \cell }{nombre del archivo a leer \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i filas} \cell }{Par\'E1metro de salida con las filas de la imagen. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i columnas} \cell }{Par\'E1metro de salida con las columnas de la imagen. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i datos} \cell }{vector para obtener el valor de cada uno de los p\'EDxeles desde la esquina superior izqda a la inferior dcha. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Valores devueltos:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i true} \cell }{si ha tenido \'E9xito en la lectura. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i false} \cell }{si se ha producido alg\'FAn error en la lectura. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Precondici\'F3n:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid datos debe tener tama\'F1o suficiente para almacenar {\i filas}  x {\i columnas}  bytes de datos de la imagen. \par
+}}{
+Definici\'F3n en la l\'EDnea 127 del archivo pgm.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 159                                                                                    \{\par
-160   bool exito= false;\par
-161   ifstream f(nombre);\par
-162 \par
-163   if (LeerTipo(f)==IMG_PGM_BINARIO)\par
-164     if (LeerCabecera (f, filas, columnas))\par
-165         if (f.read(reinterpret_cast<char *>(datos[0]),filas*columnas))\par
-166           exito= true;\par
-167   f.close();\par
-168   return exito;\par
-169 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 127                                                                                    \{\par
+128         bool exito= false;\par
+129         ifstream f(nombre);\par
+130 \par
+131         if (f) \{\par
+132                 if (LeerTipo(f)==IMG_PGM_BINARIO)\par
+133                         if (LeerCabecera (f, filas, columnas))\par
+134                                 if (f.read(reinterpret_cast<char *>(datos[0]),filas*columnas))\par
+135                                         exito= true;\par
+136                 f.close(); //Cierro fichero\par
+137         \}\par
+138         return exito;\par
+139 \}\par
 }
 }
 {\xe \v leerPGMTexto\:pgm.cpp}
@@ -3166,28 +3215,29 @@ Valores devueltos:\par}
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
 Precondici\'F3n:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid datos debe tener tama\'F1o suficiente para almacenar {\i filas}  x {\i columnas}  bytes de datos de la imagen. \par
 }}{
-Definici\'F3n en la l\'EDnea 187 del archivo pgm.cpp.}\par
+Definici\'F3n en la l\'EDnea 142 del archivo pgm.cpp.}\par
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 187                                                                                  \{\par
-188   bool exito= false;\par
-189   ifstream f(nombre);\par
-190   int numero=0;\par
-191 \par
-192   if (LeerTipo(f)==IMG_PGM_TEXTO)\par
-193     if (LeerCabecera (f, filas, columnas))\{\par
-194       for (int i = 0; i < filas; ++i) \{\par
-195         for(int j = 0; j < columnas; j++)\{\par
-196           f >> numero;\par
-197           datos[i][j] = numero;\par
-198         \}\par
-199       \}\par
-200     \}\par
-201   if(f)\{\par
-202     exito = true;\par
-203   \}\par
-204   f.close();\par
-205  return exito;\par
-206 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 142                                                                                  \{\par
+143         bool exito= false;\par
+144         ifstream f(nombre); //Flujo de entrada con el nombre del archivo\par
+145 \par
+146         int buffer=0;\par
+147         if (f) \{\par
+148                 if (LeerTipo(f)==IMG_PGM_TEXTO)\par
+149                         if (LeerCabecera (f, filas, columnas)) \{\par
+150                                 for (int i = 0; i < filas; ++i) \{\par
+151                                         for(int j = 0; j < columnas; j++) \{\par
+152                                                 f >> buffer;\par
+153                                                 datos[i][j] = buffer;\par
+154                                         \}\par
+155                                 \}\par
+156                         \}\par
+157 \par
+158                 exito = true;\par
+159                 f.close();\par
+160         \}\par
+161         return exito;\par
+162 \}\par
 }
 }
 
